@@ -1,6 +1,7 @@
 package com.roncoo.jui.common.bean.dto;
 
 /**
+ * 异常处理类
  * 
  * @author wujing
  */

@@ -23,7 +23,7 @@ import java.util.Properties;
  * 
  * @author wujing
  */
-public class ConfUtil {
+public final class ConfUtil {
 
 	private ConfUtil() {
 		

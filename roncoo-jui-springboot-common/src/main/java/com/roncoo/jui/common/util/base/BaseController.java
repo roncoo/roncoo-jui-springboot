@@ -15,16 +15,15 @@
  */
 package com.roncoo.jui.common.util.base;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.roncoo.jui.common.bean.dto.Jui;
+import com.roncoo.jui.common.util.JSONUtil;
 
 /**
- * 基础类，所以controller都应该继承这个类
+ * 控制基础类，所以controller都应该继承这个类
  * 
  * @author wujing
  */
-public class BaseController {
-	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class BaseController extends Base{
 
 	public static final String TEXT_UTF8 = "text/html;charset=UTF-8";
 	public static final String JSON_UTF8 = "application/json;charset=UTF-8";
@@ -38,5 +37,13 @@ public class BaseController {
 	public static final String UPDATE = "update";
 	public static final String DELETE = "delete";
 	public static final String PAGE = "page";
+
+	public static String success(String navTabId) {
+		return JSONUtil.toJSONString(new Jui(200, "操作成功", navTabId));
+	}
+
+	public static String error(String message) {
+		return JSONUtil.toJSONString(new Jui(300, message, ""));
+	}
 
 }

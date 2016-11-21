@@ -2,6 +2,11 @@ package com.roncoo.jui.common.bean.dto;
 
 import java.io.Serializable;
 
+/**
+ * 封装jui
+ * 
+ * @author wujing
+ */
 public class Jui implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,6 +18,15 @@ public class Jui implements Serializable {
 	private String callbackType; // 可选。
 	private boolean forwardUrl; // 可选
 	private String confirmMsg; // 可选
+
+	/**
+	 * @param navTabId
+	 */
+	public Jui(int statusCode, String navTabId, String message) {
+		this.statusCode = statusCode;
+		this.message = navTabId;
+		this.navTabId = navTabId;
+	}
 
 	public int getStatusCode() {
 		return statusCode;

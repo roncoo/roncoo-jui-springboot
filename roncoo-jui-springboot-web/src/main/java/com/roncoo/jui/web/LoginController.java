@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author wujing
  */
 @Controller
-@RequestMapping(value = "admin")
-public class IndexController {
+public class LoginController {
 
-	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public void index() {
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public void getLogin() {
 
+	}
+
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String postLogin() {
+		return "redirect:/admin/index";
 	}
 
 }

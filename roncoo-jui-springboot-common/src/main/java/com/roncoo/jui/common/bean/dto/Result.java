@@ -5,12 +5,17 @@ import java.io.Serializable;
 /**
  * 接口返回对象实体
  * 
- * @author hugovon
- * @version 1.0
+ * @author wujing
  * @param <T>
  */
 public class Result<T> implements Serializable {
+
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 状态
+	 */
+	private boolean status;
 
 	/**
 	 * 错误码
@@ -30,18 +35,12 @@ public class Result<T> implements Serializable {
 	public Result() {
 	}
 
-	public Result(T resultData) {
-		this.resultData = resultData;
+	public boolean isStatus() {
+		return status;
 	}
 
-	public Result(int errCode, String errMsg) {
-		this.errCode = errCode;
-		this.errMsg = errMsg;
-	}
-
-	public Result(RoncooException roncooException) {
-		this.errCode = roncooException.getExpCode();
-		this.errMsg = roncooException.getExpMsg();
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public int getErrCode() {
@@ -66,11 +65,6 @@ public class Result<T> implements Serializable {
 
 	public void setResultData(T resultData) {
 		this.resultData = resultData;
-	}
-
-	@Override
-	public String toString() {
-		return "ResultData [errCode=" + errCode + ", errMsg=" + errMsg + ", resultData=" + resultData + "]";
 	}
 
 }

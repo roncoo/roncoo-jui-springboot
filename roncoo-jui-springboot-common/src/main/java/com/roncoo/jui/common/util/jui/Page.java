@@ -59,11 +59,6 @@ public class Page<T> implements Serializable {
 	private int currentPage;
 
 	/**
-	 * 页数
-	 */
-	private int pageNum;
-
-	/**
 	 * 每页记录数
 	 */
 	private int numPerPage;
@@ -77,6 +72,25 @@ public class Page<T> implements Serializable {
 	 * 排序方式：asc or desc
 	 */
 	private String orderDirection;
+
+	/**
+	 * 构造函数
+	 * 
+	 * @param totalCount
+	 *            总记录数
+	 * @param totalPage
+	 *            总页数
+	 * @param pageCurrent
+	 * @param pageSize
+	 * @param list
+	 */
+	public Page(int totalCount, int totalPage, int currentPage, int numPerPage, List<T> list) {
+		this.totalCount = totalCount;
+		this.totalPage = totalPage;
+		this.currentPage = currentPage;
+		this.numPerPage = numPerPage;
+		this.list = list;
+	}
 
 	public List<T> getList() {
 		return list;
@@ -108,14 +122,6 @@ public class Page<T> implements Serializable {
 
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
-	}
-
-	public int getPageNum() {
-		return pageNum;
-	}
-
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
 	}
 
 	public int getNumPerPage() {
