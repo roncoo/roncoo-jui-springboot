@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- <parent> <groupId>io.spring.platform</groupId> <artifactId>platform-bom</artifactId> 
+		<version>Athens-SR1</version> <relativePath /> </parent> -->
+
+	<groupId>com.roncoo.os</groupId>
+	<artifactId>roncoo-jui-springboot</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>roncoo-open-source</name>
+	<url>http://maven.apache.org</url>
+
+	<modules>
+		<module>roncoo-jui-springboot-common</module>
+		<module>roncoo-jui-springboot-web</module>
+	</modules>
+
+	<organization>
+		<name>龙果学院</name>
+		<url>http://www.roncoo.com</url>
+	</organization>
+
+	<properties>
+		<jdk.version>1.8</jdk.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- roncoo -->
+			<dependency>
+				<groupId>com.roncoo.os</groupId>
+				<artifactId>roncoo-jui-springboot-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- Druid -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>1.0.16</version>
+			</dependency>
+
+			<!-- io.spring.platform -->
+			<dependency>
+				<groupId>io.spring.platform</groupId>
+				<artifactId>platform-bom</artifactId>
+				<version>Athens-SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+
+				<!-- compiler插件, 设定JDK版本 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+						<skip>true</skip>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+
+				<!-- 资源插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>copy-resources</id>
+							<phase>validate</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>src/main/resources</outputDirectory>
+								<resources>
+									<resource>
+										<directory>src/main/resources/conf/${configPath}</directory>
+										<filtering>true</filtering>
+										<includes>
+											<include>*.properties</include>
+											<include>*.conf</include>
+										</includes>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<configPath>dev</configPath>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<configPath>prod</configPath>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<configPath>test</configPath>
+			</properties>
+		</profile>
+	</profiles>
+
+</project>

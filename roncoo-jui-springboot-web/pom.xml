@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.roncoo.os</groupId>
+		<artifactId>roncoo-jui-springboot</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>roncoo-jui-springboot-web</artifactId>
+	<packaging>jar</packaging>
+
+	<name>roncoo-jui-springboot-web</name>
+	<description>roncoo-jui-springboot-web maven project</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.roncoo.os</groupId>
+			<artifactId>roncoo-jui-springboot-common</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
