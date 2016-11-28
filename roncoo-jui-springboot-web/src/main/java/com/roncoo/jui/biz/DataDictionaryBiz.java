@@ -104,6 +104,7 @@ public class DataDictionaryBiz extends Base{
 	 * @return
 	 */
 	public Result<Page<RcDataDictionary>> listForPage(int currentPage, int numPerPage, RcDataDictionary rcDataDictionary) {
-		return null;
+		Result<Page<RcDataDictionary>> result = new Result<Page<RcDataDictionary>>();
+		return result;
 	}
 }
