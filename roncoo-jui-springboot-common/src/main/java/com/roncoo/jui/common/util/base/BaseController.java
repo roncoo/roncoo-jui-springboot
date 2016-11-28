@@ -23,7 +23,7 @@ import com.roncoo.jui.common.util.JSONUtil;
  * 
  * @author wujing
  */
-public class BaseController extends Base{
+public class BaseController extends Base {
 
 	public static final String TEXT_UTF8 = "text/html;charset=UTF-8";
 	public static final String JSON_UTF8 = "application/json;charset=UTF-8";
@@ -39,11 +39,15 @@ public class BaseController extends Base{
 	public static final String PAGE = "page";
 
 	public static String success(String navTabId) {
-		return JSONUtil.toJSONString(new Jui(200, "操作成功", navTabId));
+		return JSONUtil.toJSONString(new Jui(200, navTabId, "操作成功", "closeCurrent"));
+	}
+	
+	public static String deleteSuccess(String navTabId) {
+		return JSONUtil.toJSONString(new Jui(200, navTabId, "操作成功", ""));
 	}
 
 	public static String error(String message) {
-		return JSONUtil.toJSONString(new Jui(300, message, ""));
+		return JSONUtil.toJSONString(new Jui(300, "", message, ""));
 	}
 
 }

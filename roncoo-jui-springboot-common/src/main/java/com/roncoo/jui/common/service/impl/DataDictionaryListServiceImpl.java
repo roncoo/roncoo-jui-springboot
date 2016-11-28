@@ -15,14 +15,12 @@
  */
 package com.roncoo.jui.common.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.roncoo.jui.common.bean.RcDataDictionaryList;
 import com.roncoo.jui.common.bean.dto.Result;
+import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
 import com.roncoo.jui.common.dao.DataDictionaryListDao;
 import com.roncoo.jui.common.service.DataDictionaryListService;
 import com.roncoo.jui.common.util.base.Base;
@@ -40,21 +38,9 @@ public class DataDictionaryListServiceImpl extends Base implements DataDictionar
 	private DataDictionaryListDao dao;
 
 	@Override
-	public Result<Page<RcDataDictionaryList>> listForPage(int pageCurrent, int pageSize, String fieldCode, String date, String search) {
+	public Result<Page<RcDataDictionaryList>> listForPage(int currentPage, int numPerPage, String fieldCode, RcDataDictionaryList rcDataDictionaryList) {
 		Result<Page<RcDataDictionaryList>> result = new Result<Page<RcDataDictionaryList>>();
-		if (pageCurrent < 1) {
-			result.setErrMsg("pageCurrent有误");
-			return result;
-		}
-		if (pageSize < 1) {
-			result.setErrMsg("pageSize有误");
-			return result;
-		}
-		if (!StringUtils.hasText(fieldCode)) {
-			result.setErrMsg("fieldCode不能为空");
-			return result;
-		}
-		result.setResultData(dao.listForPage(pageCurrent, pageSize, fieldCode, date, search));
+		result.setResultData(dao.listForPage(currentPage, numPerPage, fieldCode, rcDataDictionaryList));
 		result.setErrCode(0);
 		result.setStatus(true);
 		result.setErrMsg("查询成功");
@@ -72,80 +58,44 @@ public class DataDictionaryListServiceImpl extends Base implements DataDictionar
 			result.setErrMsg("value不能为空");
 			return result;
 		}
-		if (rcDataDictionaryList.getSort() < 1) {
-			result.setErrMsg("排序有误");
-			return result;
-		}
 		if (dao.insert(rcDataDictionaryList) > 0) {
-			result.setErrCode(0);
 			result.setStatus(true);
-			result.setErrMsg("保存成功");
+			result.setErrCode(0);
 		}
 		result.setResultData(rcDataDictionaryList);
 		return result;
 	}
 
 	@Override
-	public Result<String> deleteById(Long id) {
+	public Result<String> delete(Long id) {
 		Result<String> result = new Result<String>();
-		if (id < 1) {
+		if (id < 0) {
 			result.setErrMsg("此id无效");
 			return result;
 		}
 		if (dao.deleteById(id) > 0) {
 			result.setErrCode(0);
 			result.setStatus(true);
-			result.setErrMsg("删除成功");
 		}
 		return result;
 	}
 
 	@Override
-	public Result<String> deleteByFieldCode(String fieldCode) {
-		Result<String> result = new Result<String>();
-		if (!StringUtils.hasText(fieldCode)) {
-			result.setErrMsg("fieldCode不能为空");
-			return result;
-		}
-		if (dao.deleteByFieldCode(fieldCode) > 0) {
-			result.setErrCode(0);
-			result.setStatus(true);
-			result.setErrMsg("删除成功");
-		}
-		return result;
-	}
-
-	@Override
-	public Result<List<RcDataDictionaryList>> listByFieldCode(String fieldCode) {
-		Result<List<RcDataDictionaryList>> result = new Result<List<RcDataDictionaryList>>();
-		if (!StringUtils.hasText(fieldCode)) {
-			result.setErrMsg("fieldCode不能为空");
-			return result;
-		}
-		result.setResultData(dao.listByFieldCode(fieldCode));
-		result.setErrCode(0);
-		result.setStatus(true);
-		result.setErrMsg("查询成功");
-		return result;
-	}
-
-	@Override
-	public Result<RcDataDictionaryList> queryById(Long id) {
+	public Result<RcDataDictionaryList> query(Long id) {
 		Result<RcDataDictionaryList> result = new Result<RcDataDictionaryList>();
-		if (id < 1) {
+		if (id < 0) {
 			result.setErrMsg("此id无效");
 			return result;
 		}
 		result.setResultData(dao.selectById(id));
-		result.setErrCode(0);
 		result.setStatus(true);
-		result.setErrMsg("查询成功");
+		result.setErrCode(0);
 		return result;
 	}
 
 	@Override
 	public Result<RcDataDictionaryList> update(RcDataDictionaryList rcDataDictionaryList) {
-		Result<RcDataDictionaryList> result = new Result<>();
+		Result<RcDataDictionaryList> result = new Result<RcDataDictionaryList>();
 		if (!StringUtils.hasText(rcDataDictionaryList.getFieldKey())) {
 			result.setErrMsg("key不能为空");
 			return result;
@@ -159,29 +109,19 @@ public class DataDictionaryListServiceImpl extends Base implements DataDictionar
 			return result;
 		}
 		if (dao.updateById(rcDataDictionaryList) > 0) {
-			result.setErrCode(0);
 			result.setStatus(true);
-			result.setErrMsg("更新成功");
+			result.setErrCode(0);
 		}
 		result.setResultData(rcDataDictionaryList);
 		return result;
 	}
 
 	@Override
-	public Result<String> updateForFieldCode(String fieldCodePremise, String fieldCode) {
+	public Result<String> deleteByFieldCode(String fieldCode) {
 		Result<String> result = new Result<String>();
-		if (!StringUtils.hasText(fieldCodePremise)) {
-			result.setErrMsg("fieldCodePremise不能为空");
-			return result;
-		}
-		if (!StringUtils.hasText(fieldCode)) {
-			result.setErrMsg("fieldCode不能为空");
-			return result;
-		}
-		if (dao.updateByFieldCode(fieldCodePremise, fieldCode) > 0) {
-			result.setErrCode(0);
+		if (dao.deleteByFieldCode(fieldCode) > 0) {
 			result.setStatus(true);
-			result.setErrMsg("更新成功");
+			result.setErrCode(0);
 		}
 		return result;
 	}

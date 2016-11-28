@@ -21,22 +21,10 @@
 			<div class="accordionContent">
 				<ul class="tree treeFolder">
 					<li>
-						<a>邮箱管理</a>
-						<ul>
-							<li>
-								<a href="${base}/admin/emailInfo/list" target="navTab" rel="send">发信箱管理</a>
-							</li>
-							<li>
-								<a href="${base}/admin/emailInfo/list" target="navTab" rel="acount">账号管理</a>
-							</li>
-						</ul>
-					</li>
-
-					<li>
 						<a>系统管理</a>
 						<ul>
 							<li>
-								<a href="${base}/admin/dataDictionary/list" target="navTab" rel="w_panel">数据字典管理</a>
+								<a href="${base}/admin/dataDictionary/list" target="navTab" rel="dataDictionary">数据字典管理</a>
 							</li>
 						</ul>
 					</li>

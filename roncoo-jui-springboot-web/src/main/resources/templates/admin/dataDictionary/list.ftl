@@ -29,9 +29,9 @@
 			<li class="line">line</li>
 			<li><a class="add" href="${base}/admin/dataDictionary/add" target="dialog"><span>添加</span></a></li>
 			<li class="line">line</li>
-			<li><a class="delete" href="demo/common/ajaxDone.html?id={sid}" target="ajaxTodo" title="确定要删除吗？" warn="请选择一个用户"><span>删除</span></a></li>
+			<li><a class="delete" href="${base}/admin/dataDictionary/delete?id={sid}" target="ajaxTodo" title="确定要删除吗？" warn="请选中要删除的数据"><span>删除</span></a></li>
 			<li class="line">line</li>
-			<li><a class="edit" href="demo_page4.html?id={sid}" target="navTab" warn="请选择一个用户"><span>修改</span></a></li>
+			<li><a class="edit" href="${base}/admin/dataDictionary/edit?id={sid}" target="dialog" warn="请选中要修改的数据"><span>修改</span></a></li>
 			<li class="line">line</li>
 		</ul>
 	</div>
@@ -44,29 +44,29 @@
 					<th colspan="1">操作</th>
 				</tr>
 				<tr>
-					<th align="center">序号</th>
+					<th align="center" width="50">序号</th>
 					<th>字段名</th>
-					<th>CODE值</th>
-					<th orderField="sort" class="desc">排序</th>
+					<th orderField="field_code" class="<#if page.orderField! == 'field_code'>${page.orderDirection}</#if>">CODE值</th>
+					<th orderField="sort" class="<#if page.orderField! == 'sort'>${page.orderDirection}</#if>">排序</th>
 					<th>备注</th>
-					<th>创建时间</th>
-					<th width="100">操作</th>
+					<th>更新时间</th>
+					<th width="200">操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<#if (page)??>
 					<#list page.list as bean>
 						<tr target="sid" rel="${bean.id}">
-							<td>${bean_index+1}</td>
+							<td align="center">${bean_index+1}</td>
 							<td>${bean.fieldName}</td>
+							<td>${bean.fieldCode}</td>
 							<td>${bean.sort}</td>
 							<td>${bean.remark}</td>
-							<td>${bean.createTime?string('yyyy-MM-dd HH:mm:ss')}</td>
+							<td>${bean.updateTime?string('yyyy-MM-dd HH:mm:ss')}</td>
 							<td>
-								<a class="btn btn-primary btn-xs" href="${ctx}/admin/dataDictionary/view?id=${bean.id}">查看</a>
-								<a class="btn btn-info btn-xs" href="${ctx}/admin/dataDictionary/edit?id=${bean.id}">修改</a>
-								<a class="btn btn-primary btn-xs" href="${ctx}/admin/dataDictionaryList/list?dId=${bean.id}&fieldCode=${bean.fieldCode}">明细</a>
-								<a class="btn btn-danger btn-xs" onClick="delcfm('${ctx}/admin/dataDictionary/delete?id=${bean.id}&fieldCode=${bean.fieldCode}')">删除</a>
+								<a title="确定要删除吗？" target="ajaxTodo" href="${base}/admin/dataDictionary/delete?id=${bean.id}&fieldCode=${bean.fieldCode}" class="btnDel">删除</a>
+								<a title="${bean.fieldName}-编辑" target="dialog" href="${base}/admin/dataDictionary/edit?id=${bean.id}" class="btnEdit">编辑</a>
+								<a title="${bean.fieldName}-查看" target="navTab" href="${base}/admin/dataDictionaryList/list?fieldCode=${bean.fieldCode}" class="btnView" rel="dataDictionaryList">查看</a>
 							</td>
 						</tr>
 					</#list>

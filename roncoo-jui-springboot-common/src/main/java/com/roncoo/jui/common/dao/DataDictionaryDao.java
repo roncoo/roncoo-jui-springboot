@@ -15,7 +15,7 @@
  */
 package com.roncoo.jui.common.dao;
 
-import com.roncoo.jui.common.bean.RcDataDictionary;
+import com.roncoo.jui.common.bean.entity.RcDataDictionary;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**
@@ -26,6 +26,14 @@ import com.roncoo.jui.common.util.jui.Page;
 public interface DataDictionaryDao {
 
 	/**
+	 * @param currentPage
+	 * @param numPerPage
+	 * @param rcDataDictionary
+	 * @return
+	 */
+	Page<RcDataDictionary> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, RcDataDictionary rcDataDictionary);
+	
+	/**
 	 * 添加
 	 * 
 	 * @param rcDataDictionary
@@ -34,13 +42,11 @@ public interface DataDictionaryDao {
 	int insert(RcDataDictionary rcDataDictionary);
 
 	/**
-	 * 分页查询
+	 * 根据id删除
 	 * 
-	 * @param pageCurrent
-	 * @param pageSize
-	 * @return
+	 * @param id
 	 */
-	Page<RcDataDictionary> listForPage(int pageCurrent, int pageSize, String date, String search);
+	int deleteById(Long id);
 
 	/**
 	 * 根据id查询
@@ -49,13 +55,6 @@ public interface DataDictionaryDao {
 	 * @return
 	 */
 	RcDataDictionary selectById(Long id);
-
-	/**
-	 * 根据id删除
-	 * 
-	 * @param id
-	 */
-	int deleteById(Long id);
 
 	/**
 	 * 更新

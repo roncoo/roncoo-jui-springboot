@@ -38,7 +38,7 @@ public final class ConfUtil {
 	static {
 		try {
 			// 从类路径下读取属性文件
-			properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("conf.properties"));
+			properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("system.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

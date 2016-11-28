@@ -18,15 +18,14 @@ package com.roncoo.jui.biz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.roncoo.jui.common.bean.RcDataDictionaryList;
 import com.roncoo.jui.common.bean.dto.Result;
+import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
 import com.roncoo.jui.common.service.DataDictionaryListService;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**
- * 数据字典明细逻辑功能
  * 
- * @author LYQ
+ * @author wujing
  */
 @Component
 public class DataDictionaryListBiz {
@@ -35,22 +34,22 @@ public class DataDictionaryListBiz {
 	private DataDictionaryListService dictionaryListService;
 
 	/**
-	 * 分页查询
-	 * 
-	 * @param pageCurrent
-	 * @param pageSize
-	 * @param id
+	 * @param currentPage
+	 * @param numPerPage
+	 * @param orderField
+	 * @param orderDirection
+	 * @param rcDataDictionaryList
 	 * @return
 	 */
-	public Result<Page<RcDataDictionaryList>> listForPage(int pageCurrent, int pageSize, String fieldCode, String date, String search) {
-		return dictionaryListService.listForPage(pageCurrent, pageSize, fieldCode, date, search);
+	public Result<Page<RcDataDictionaryList>> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, String fieldCode, RcDataDictionaryList rcDataDictionaryList) {
+		return dictionaryListService.listForPage(currentPage, numPerPage, fieldCode, rcDataDictionaryList);
 	}
 
 	/**
 	 * 根据id删除
 	 */
-	public Result<String> deleteById(Long id) {
-		return dictionaryListService.deleteById(id);
+	public Result<String> delete(Long id) {
+		return dictionaryListService.delete(id);
 	}
 
 	/**
@@ -70,7 +69,7 @@ public class DataDictionaryListBiz {
 	 * @return
 	 */
 	public Result<RcDataDictionaryList> queryById(Long id) {
-		return dictionaryListService.queryById(id);
+		return dictionaryListService.query(id);
 	}
 
 	/**

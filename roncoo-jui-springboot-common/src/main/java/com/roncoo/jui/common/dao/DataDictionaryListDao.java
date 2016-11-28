@@ -15,12 +15,8 @@
  */
 package com.roncoo.jui.common.dao;
 
-import java.util.List;
-
-import com.roncoo.jui.common.bean.RcDataDictionaryList;
+import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
 import com.roncoo.jui.common.util.jui.Page;
-
-
 
 /**
  * 
@@ -28,14 +24,22 @@ import com.roncoo.jui.common.util.jui.Page;
  *
  */
 public interface DataDictionaryListDao {
-
 	/**
-	 * 根据FieldCode删除
-	 * 
-	 * @param FieldCode
+	 * @param currentPage
+	 * @param numPerPage
+	 * @param fieldCode
+	 * @param rcDataDictionaryList
 	 * @return
 	 */
-	int deleteByFieldCode(String FieldCode);
+	Page<RcDataDictionaryList> listForPage(int currentPage, int numPerPage, String fieldCode, RcDataDictionaryList rcDataDictionaryList);
+
+	/**
+	 * 添加
+	 * 
+	 * @param rcDataDictionaryList
+	 * @return
+	 */
+	int insert(RcDataDictionaryList rcDataDictionaryList);
 
 	/**
 	 * 
@@ -48,22 +52,12 @@ public interface DataDictionaryListDao {
 	int deleteById(Long id);
 
 	/**
-	 * 添加
+	 * 根据FieldCode删除
 	 * 
-	 * @param rcDataDictionaryList
+	 * @param FieldCode
 	 * @return
 	 */
-	int insert(RcDataDictionaryList rcDataDictionaryList);
-
-	/**
-	 * 分页查询
-	 * 
-	 * @param pageCurrent
-	 * @param pageSize
-	 * @param fieldCode
-	 * @return
-	 */
-	Page<RcDataDictionaryList> listForPage(int pageCurrent, int pageSize, String fieldCode, String date, String search);
+	int deleteByFieldCode(String FieldCode);
 
 	/**
 	 * 
@@ -82,20 +76,4 @@ public interface DataDictionaryListDao {
 	 */
 	int updateById(RcDataDictionaryList rcDataDictionaryList);
 
-	/**
-	 * 根据fieldCode查询
-	 * 
-	 * @param fieldCode
-	 * @return
-	 */
-	List<RcDataDictionaryList> listByFieldCode(String fieldCode);
-
-	/**
-	 * 根据fieldCode更新
-	 * 
-	 * @param fieldCodePremise
-	 * @param fieldCode
-	 * @return
-	 */
-	int updateByFieldCode(String fieldCodePremise, String fieldCode);
 }

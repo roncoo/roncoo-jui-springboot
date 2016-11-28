@@ -15,13 +15,9 @@
  */
 package com.roncoo.jui.common.service;
 
-import java.util.List;
-
-import com.roncoo.jui.common.bean.RcDataDictionaryList;
 import com.roncoo.jui.common.bean.dto.Result;
+import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
 import com.roncoo.jui.common.util.jui.Page;
-
-
 
 /**
  * 数据字典明细服务功能
@@ -31,14 +27,12 @@ import com.roncoo.jui.common.util.jui.Page;
 public interface DataDictionaryListService {
 
 	/**
-	 * 分页查询
-	 * 
+	 * @param currentPage
+	 * @param numPerPage
 	 * @param fieldCode
-	 * @param pageCurrent
-	 * @param pageSize
-	 * @return
+	 * @param rcDataDictionaryList
 	 */
-	Result<Page<RcDataDictionaryList>> listForPage(int pageCurrent, int pageSize, String fieldCode, String date, String search);
+	Result<Page<RcDataDictionaryList>> listForPage(int currentPage, int numPerPage, String fieldCode, RcDataDictionaryList rcDataDictionaryList);
 
 	/**
 	 * 保存
@@ -53,23 +47,7 @@ public interface DataDictionaryListService {
 	 * 
 	 * @param id
 	 */
-	Result<String> deleteById(Long id);
-
-	/**
-	 * 根据fieldCode进行删除
-	 * 
-	 * @param fieldCode
-	 * @return
-	 */
-	Result<String> deleteByFieldCode(String fieldCode);
-
-	/**
-	 * 根据fieldCode查询
-	 * 
-	 * @param fieldCode
-	 * @return
-	 */
-	Result<List<RcDataDictionaryList>> listByFieldCode(String fieldCode);
+	Result<String> delete(Long id);
 
 	/**
 	 * 根据id查询
@@ -77,7 +55,7 @@ public interface DataDictionaryListService {
 	 * @param id
 	 * @return
 	 */
-	Result<RcDataDictionaryList> queryById(Long id);
+	Result<RcDataDictionaryList> query(Long id);
 
 	/**
 	 * 更新
@@ -88,11 +66,9 @@ public interface DataDictionaryListService {
 	Result<RcDataDictionaryList> update(RcDataDictionaryList rcDataDictionaryList);
 
 	/**
-	 * 根据fieldCode更新
-	 * 
-	 * @param fieldCodePremise
 	 * @param fieldCode
 	 * @return
 	 */
-	Result<String> updateForFieldCode(String fieldCodePremise, String fieldCode);
+	Result<String> deleteByFieldCode(String fieldCode);
+
 }

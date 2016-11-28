@@ -16,7 +16,7 @@
 			</encoder>
 		</appender>
 		
-		<logger name="com.roncoo.example" level="debug"/>
+		<logger name="com.roncoo" level="debug"/>
 
 		<root level="info">
 			<appender-ref ref="CONSOLE" />

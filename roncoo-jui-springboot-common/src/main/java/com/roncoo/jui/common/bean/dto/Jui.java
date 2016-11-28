@@ -15,17 +15,18 @@ public class Jui implements Serializable {
 	private String message; // 可选。信息内容。
 	private String navTabId; // 可选。
 	private String rel; // 可选。
-	private String callbackType; // 可选。
+	private String callbackType; // 可选。callbackType="closeCurrent"关闭当前tab，callbackType="forward"需要forwardUrl值
 	private boolean forwardUrl; // 可选
 	private String confirmMsg; // 可选
 
 	/**
 	 * @param navTabId
 	 */
-	public Jui(int statusCode, String navTabId, String message) {
+	public Jui(int statusCode, String navTabId, String message, String callbackType) {
 		this.statusCode = statusCode;
-		this.message = navTabId;
 		this.navTabId = navTabId;
+		this.message = message;
+		this.callbackType = callbackType;
 	}
 
 	public int getStatusCode() {
@@ -82,6 +83,11 @@ public class Jui implements Serializable {
 
 	public void setConfirmMsg(String confirmMsg) {
 		this.confirmMsg = confirmMsg;
+	}
+
+	@Override
+	public String toString() {
+		return "Jui [statusCode=" + statusCode + ", message=" + message + ", navTabId=" + navTabId + ", rel=" + rel + ", callbackType=" + callbackType + ", forwardUrl=" + forwardUrl + ", confirmMsg=" + confirmMsg + "]";
 	}
 
 }

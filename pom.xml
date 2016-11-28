@@ -93,7 +93,7 @@
 								<outputDirectory>src/main/resources</outputDirectory>
 								<resources>
 									<resource>
-										<directory>src/main/resources/conf/${configPath}</directory>
+										<directory>src/main/resources/config/${configPath}</directory>
 										<filtering>true</filtering>
 										<includes>
 											<include>*.properties</include>

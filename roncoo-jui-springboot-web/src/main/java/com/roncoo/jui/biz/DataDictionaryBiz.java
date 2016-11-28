@@ -19,20 +19,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.roncoo.jui.common.bean.RcDataDictionary;
 import com.roncoo.jui.common.bean.dto.Result;
+import com.roncoo.jui.common.bean.entity.RcDataDictionary;
 import com.roncoo.jui.common.service.DataDictionaryListService;
 import com.roncoo.jui.common.service.DataDictionaryService;
 import com.roncoo.jui.common.util.base.Base;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**
- * 数据字典逻辑业务类
  * 
- * @author LYQ
+ * @author wujing
  */
 @Component
-public class DataDictionaryBiz extends Base{
+public class DataDictionaryBiz extends Base {
 
 	@Autowired
 	private DataDictionaryService dictionaryService;
@@ -41,14 +40,13 @@ public class DataDictionaryBiz extends Base{
 	private DataDictionaryListService dictionaryListService;
 
 	/**
-	 * 分页查询
-	 * 
-	 * @param pageCurrent
-	 * @param pageSize
+	 * @param currentPage
+	 * @param numPerPage
+	 * @param rcDataDictionary
 	 * @return
 	 */
-	public Result<Page<RcDataDictionary>> listForPage(int pageCurrent, int pageSize, String date, String search) {
-		return dictionaryService.listForPage(pageCurrent, pageSize, date, search);
+	public Result<Page<RcDataDictionary>> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, RcDataDictionary rcDataDictionary) {
+		return dictionaryService.listForPage(currentPage, numPerPage, orderField, orderDirection, rcDataDictionary);
 	}
 
 	/**
@@ -68,8 +66,11 @@ public class DataDictionaryBiz extends Base{
 	 */
 	@Transactional
 	public Result<String> delete(Long id, String fieldCode) {
-		dictionaryListService.deleteByFieldCode(fieldCode);
-		return dictionaryService.deleteById(id);
+		Result<String> result = dictionaryListService.deleteByFieldCode(fieldCode);
+		if (!result.isStatus()) {
+			logger.warn("没有对应的信息");
+		}
+		return dictionaryService.delete(id);
 	}
 
 	/**
@@ -79,7 +80,7 @@ public class DataDictionaryBiz extends Base{
 	 * @return
 	 */
 	public Result<RcDataDictionary> query(Long id) {
-		return dictionaryService.queryById(id);
+		return dictionaryService.query(id);
 	}
 
 	/**
@@ -89,22 +90,8 @@ public class DataDictionaryBiz extends Base{
 	 * @param oldFieldCode
 	 */
 	@Transactional
-	public Result<RcDataDictionary> update(RcDataDictionary dictionary, String oldFieldCode) {
-		Result<RcDataDictionary> result = dictionaryService.update(dictionary);
-		if (oldFieldCode != dictionary.getFieldCode()) {
-			dictionaryListService.updateForFieldCode(oldFieldCode, dictionary.getFieldCode());
-		}
-		return result;
+	public Result<RcDataDictionary> update(RcDataDictionary dictionary) {
+		return dictionaryService.update(dictionary);
 	}
 
-	/**
-	 * @param currentPage
-	 * @param numPerPage
-	 * @param rcDataDictionary
-	 * @return
-	 */
-	public Result<Page<RcDataDictionary>> listForPage(int currentPage, int numPerPage, RcDataDictionary rcDataDictionary) {
-		Result<Page<RcDataDictionary>> result = new Result<Page<RcDataDictionary>>();
-		return result;
-	}
 }

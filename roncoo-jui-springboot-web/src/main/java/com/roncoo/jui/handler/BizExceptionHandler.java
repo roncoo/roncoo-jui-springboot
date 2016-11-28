@@ -9,10 +9,8 @@ import com.roncoo.jui.common.bean.dto.RoncooException;
 import com.roncoo.jui.common.util.base.BaseController;
 
 /**
- * 异常处理类
  * 
- * @author hugovon
- * @version 1.0
+ * @author wujing
  */
 @RestControllerAdvice
 public class BizExceptionHandler extends BaseController {
@@ -28,7 +26,7 @@ public class BizExceptionHandler extends BaseController {
 	@ResponseStatus(HttpStatus.OK)
 	public String processException(Exception e) {
 		logger.error(e.getMessage(), e);
-		return error("system error!");
+		return error("系统错误");
 	}
 
 }

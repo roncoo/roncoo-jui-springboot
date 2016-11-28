@@ -16,19 +16,18 @@
 package com.roncoo.jui.common.dao.impl;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import com.roncoo.jui.common.bean.RcDataDictionary;
-import com.roncoo.jui.common.bean.RcDataDictionaryExample;
-import com.roncoo.jui.common.bean.RcDataDictionaryExample.Criteria;
+import com.roncoo.jui.common.bean.entity.RcDataDictionary;
+import com.roncoo.jui.common.bean.entity.RcDataDictionaryExample;
+import com.roncoo.jui.common.bean.entity.RcDataDictionaryExample.Criteria;
 import com.roncoo.jui.common.dao.DataDictionaryDao;
-import com.roncoo.jui.common.dao.impl.mapper.RcDataDictionaryMapper;
+import com.roncoo.jui.common.mapper.RcDataDictionaryMapper;
+import com.roncoo.jui.common.util.SqlUtil;
 import com.roncoo.jui.common.util.jui.Page;
-import com.roncoo.jui.common.util.jui.SqlUtil;
 
 /**
  * 
@@ -41,6 +40,34 @@ public class DataDictionaryDaoImpl implements DataDictionaryDao {
 	private RcDataDictionaryMapper mapper;
 
 	@Override
+	public Page<RcDataDictionary> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, RcDataDictionary rcDataDictionary) {
+		RcDataDictionaryExample example = new RcDataDictionaryExample();
+		Criteria c = example.createCriteria();
+		
+		// 字段查询
+		if (StringUtils.hasText(rcDataDictionary.getFieldName())) {
+			c.andFieldNameLike(SqlUtil.like(rcDataDictionary.getFieldName()));
+		}
+
+		// 字段排序
+		StringBuffer orderByClause = new StringBuffer();
+		if (StringUtils.hasText(orderField)) {
+			orderByClause.append(orderField).append(" ").append(orderDirection).append(", ");
+		}
+		example.setOrderByClause(orderByClause.append("update_time desc").toString());
+
+		int totalCount = mapper.countByExample(example);
+		numPerPage = SqlUtil.checkPageSize(numPerPage);
+		currentPage = SqlUtil.checkPageCurrent(totalCount, numPerPage, currentPage);
+		example.setLimitStart(SqlUtil.countOffset(currentPage, numPerPage));
+		example.setPageSize(numPerPage);
+		Page<RcDataDictionary> page = new Page<RcDataDictionary>(totalCount, SqlUtil.countTotalPage(totalCount, numPerPage), currentPage, numPerPage, mapper.selectByExample(example));
+		page.setOrderField(orderField);
+		page.setOrderDirection(orderDirection);
+		return page;
+	}
+	
+	@Override
 	public int insert(RcDataDictionary rcDataDictionary) {
 		rcDataDictionary.setStatusId("1");
 		rcDataDictionary.setCreateTime(new Date());
@@ -49,32 +76,13 @@ public class DataDictionaryDaoImpl implements DataDictionaryDao {
 	}
 
 	@Override
-	public Page<RcDataDictionary> listForPage(int pageCurrent, int pageSize, String date, String search) {
-		RcDataDictionaryExample example = new RcDataDictionaryExample();
-		example.setOrderByClause("sort asc");
-		Criteria criteria = example.createCriteria();
-		if (StringUtils.hasText(search)) {
-			criteria.andFieldNameLike(SqlUtil.like(search));
-		}
-		int totalCount = mapper.countByExample(example);
-		pageSize = SqlUtil.checkPageSize(pageSize);
-		pageCurrent = SqlUtil.checkPageCurrent(totalCount, pageSize, pageCurrent);
-		int totalPage = SqlUtil.countTotalPage(totalCount, pageSize);
-		example.setLimitStart(SqlUtil.countOffset(pageCurrent, pageSize));
-		example.setPageSize(pageSize);
-		List<RcDataDictionary> list = mapper.selectByExample(example);
-		Page<RcDataDictionary> page = new Page<RcDataDictionary>(totalCount, totalPage, pageCurrent, pageSize, list);
-		return page;
+	public int deleteById(Long id) {
+		return mapper.deleteByPrimaryKey(id);
 	}
-
+	
 	@Override
 	public RcDataDictionary selectById(Long id) {
 		return mapper.selectByPrimaryKey(id);
-	}
-
-	@Override
-	public int deleteById(Long id) {
-		return mapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
@@ -82,4 +90,6 @@ public class DataDictionaryDaoImpl implements DataDictionaryDao {
 		rcDataDictionary.setUpdateTime(new Date());
 		return mapper.updateByPrimaryKeySelective(rcDataDictionary);
 	}
+
+	
 }

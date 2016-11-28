@@ -15,8 +15,8 @@
  */
 package com.roncoo.jui.common.service;
 
-import com.roncoo.jui.common.bean.RcDataDictionary;
 import com.roncoo.jui.common.bean.dto.Result;
+import com.roncoo.jui.common.bean.entity.RcDataDictionary;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**
@@ -25,45 +25,48 @@ import com.roncoo.jui.common.util.jui.Page;
  * @author LYQ
  */
 public interface DataDictionaryService {
+	
+	/**
+	 * 
+	 * @param currentPage
+	 * @param numPerPage
+	 * @param orderField
+	 * @param orderDirection
+	 * @param rcDataDictionary
+	 * @return
+	 */
+	Result<Page<RcDataDictionary>> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, RcDataDictionary rcDataDictionary);
 
 	/**
-	 * 添加
 	 * 
 	 * @param rcDataDictionary
 	 * @return
 	 */
 	Result<RcDataDictionary> save(RcDataDictionary rcDataDictionary);
 
-	/**
-	 * 分页查询
-	 * 
-	 * @param pageCurrent
-	 * @param pageSize
-	 * @return
-	 */
-	Result<Page<RcDataDictionary>> listForPage(int pageCurrent, int pageSize, String date, String search);
+
 
 	/**
-	 * 根据id查询
 	 * 
 	 * @param id
 	 * @return
 	 */
-	Result<RcDataDictionary> queryById(Long id);
+	Result<String> delete(Long id);
+	
 
 	/**
-	 * 根据id进行删除
 	 * 
 	 * @param id
+	 * @return
 	 */
-	Result<String> deleteById(Long id);
+	Result<RcDataDictionary> query(Long id);
 
 	/**
-	 * 更新
 	 * 
 	 * @param rcDataDictionary
 	 * @return
 	 */
 	Result<RcDataDictionary> update(RcDataDictionary rcDataDictionary);
 
+	
 }

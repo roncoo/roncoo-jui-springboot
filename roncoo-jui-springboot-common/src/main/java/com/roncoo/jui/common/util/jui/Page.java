@@ -29,16 +29,6 @@ public class Page<T> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 默认每页记录数(20)
-	 */
-	public static final int DEFAULT_PAGE_SIZE = 20;
-
-	/**
-	 * 最大每页记录数(1000)
-	 */
-	public static final int MAX_PAGE_SIZE = 1000;
-
-	/**
 	 * 当前分页的数据集
 	 */
 	private List<T> list;
@@ -146,6 +136,11 @@ public class Page<T> implements Serializable {
 
 	public void setOrderDirection(String orderDirection) {
 		this.orderDirection = orderDirection;
+	}
+
+	@Override
+	public String toString() {
+		return "Page [list=" + list + ", totalCount=" + totalCount + ", totalPage=" + totalPage + ", currentPage=" + currentPage + ", numPerPage=" + numPerPage + ", orderField=" + orderField + ", orderDirection=" + orderDirection + "]";
 	}
 
 }

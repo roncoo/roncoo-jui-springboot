@@ -114,7 +114,7 @@
 	<div id="layout">
 		<div id="header">
 			<div class="headerNav">
-				<a class="logo" href="http://j-ui.com">标志</a>
+				<a class="logo" href="http://www.roncoo.com" target="_blank">标志</a>
 				<ul class="nav">
 					<li id="switchEnvBox">
 						<a href="javascript:">
@@ -144,10 +144,6 @@
 							</li>
 						</ul>
 					</li>
-					
-					<li>
-						<a href="changepwd.html" target="dialog" width="600">设置</a>
-					</li>
 					<li>
 						<a href="http://git.oschina.net/roncoocom" target="_blank">OSChina</a>
 					</li>
@@ -155,7 +151,7 @@
 						<a href="https://github.com/roncoo" target="_blank">GitHub</a>
 					</li>
 					<li>
-						<a href="login.html">退出</a>
+						<a href="${base}/exit">退出</a>
 					</li>
 				</ul>
 				<ul class="themeList" id="themeList">
@@ -165,7 +161,7 @@
 					<li theme="green">
 						<div>绿色</div>
 					</li>
-					
+
 					<li theme="purple">
 						<div>紫色</div>
 					</li>
@@ -180,7 +176,7 @@
 		</div>
 
 		<#include "menu.ftl" />
-		
+
 		<div id="container">
 			<div id="navTab" class="tabsPage">
 				<div class="tabsPageHeader">
@@ -206,20 +202,22 @@
 					<div class="page unitBox">
 						<div class="accountInfo">
 							<p>
-								<span>龙果学院 - 开源项目</span>
+								<span>龙果学院 - 开源项目 - Spring Boot实战</span>
 							</p>
 							<p>
-								<span>OSChina：</span><a href="http://git.oschina.net/roncoocom" target="_blank">http://git.oschina.net/roncoocom</a>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span>GitHub：</span><a href="https://github.com/roncoo" target="_blank">https://github.com/roncoo</a>
+								<span>GitHub地址：</span><a href="https://github.com/roncoo/roncoo-jui-springboot" target="_blank">https://github.com/roncoo/roncoo-jui-springboot</a>
 							</p>
+							
 						</div>
-						
+
 						<div class="pageFormContent" layoutH="80" style="margin-right: 230px">
 							<h2>项目介绍：</h2>
-							<div class="unit">
-								dwz富客户端框架 - jUI
-							</div>
+							<div class="unit">后台框架：Spring Boot v1.4.2</div>
+							<div class="unit">前端框架：JUI v1.5.2</div>
+							<div class="divider"></div>
+							<h2>龙果学院开源项目汇总：</h2>
+							<div class="unit"><span>OSChina：</span><a href="http://git.oschina.net/roncoocom" target="_blank">http://git.oschina.net/roncoocom</a></div>
+							<div class="unit"><span>GitHub：</span><a href="https://github.com/roncoo" target="_blank">https://github.com/roncoo</a></div>
 							
 						</div>
 					</div>
@@ -229,7 +227,9 @@
 	</div>
 
 	<div id="footer">
-		Copyright &copy; 2016 <a href="http://www.roncoo.com" target="_blank">龙果学院</a> 粤ICP备16009964号
+		Copyright &copy; 2016
+		<a href="http://www.roncoo.com" target="_blank">龙果学院</a>
+		粤ICP备16009964号
 	</div>
 </body>
 </html>

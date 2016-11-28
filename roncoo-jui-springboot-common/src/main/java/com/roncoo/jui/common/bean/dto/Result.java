@@ -15,7 +15,7 @@ public class Result<T> implements Serializable {
 	/**
 	 * 状态
 	 */
-	private boolean status;
+	private boolean status = false;
 
 	/**
 	 * 错误码
@@ -65,6 +65,11 @@ public class Result<T> implements Serializable {
 
 	public void setResultData(T resultData) {
 		this.resultData = resultData;
+	}
+
+	@Override
+	public String toString() {
+		return "Result [status=" + status + ", errCode=" + errCode + ", errMsg=" + errMsg + ", resultData=" + resultData + "]";
 	}
 
 }
