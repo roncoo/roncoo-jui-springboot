@@ -29,13 +29,13 @@ public class LoginController {
 		Result<String> result = biz.login();
 		if (result.isStatus()) {
 
-			// 本地发布修改这里，随便增加一个session值即可，请删除下面的：return redirect(result.getResultData());
+			// 本地发布请打开这里即可，请注释下面 return "redirect:" + result.getResultData();
 			// session.setAttribute("roncoo", "www.roncoo.com");
 			
 			// 进行龙果学院授权登录
 			return "redirect:" + result.getResultData();
 		}
-		return "login";
+		return "redirect:/admin/index";
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.GET)
