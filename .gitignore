@@ -6,3 +6,4 @@
 *.mvn
 *.project
 *.springBeans
+*/src/main/resources/config/prod/system.properties

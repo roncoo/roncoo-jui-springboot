@@ -205,6 +205,8 @@
 								<span>龙果学院 - 开源项目 - Spring Boot实战</span>
 							</p>
 							<p>
+								<span>OSChina地址：</span><a href="http://git.oschina.net/roncoocom/roncoo-jui-springboot" target="_blank">http://git.oschina.net/roncoocom/roncoo-jui-springboot</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<span>GitHub地址：</span><a href="https://github.com/roncoo/roncoo-jui-springboot" target="_blank">https://github.com/roncoo/roncoo-jui-springboot</a>
 							</p>
 							
@@ -214,6 +216,9 @@
 							<h2>项目介绍：</h2>
 							<div class="unit">后台框架：Spring Boot v1.4.2</div>
 							<div class="unit">前端框架：JUI v1.5.2</div>
+							<div class="unit">1. 后台框架基于Spring Boot，前台框架为JUI</div>
+							<div class="unit">2. 实现了简单是增删改查，主要是运用Spring Boot进行实战</div>
+							<div class="unit">3. 功能会继续添加，欢迎大家Star和Fork</div>
 							<div class="divider"></div>
 							<h2>龙果学院开源项目汇总：</h2>
 							<div class="unit"><span>OSChina：</span><a href="http://git.oschina.net/roncoocom" target="_blank">http://git.oschina.net/roncoocom</a></div>
