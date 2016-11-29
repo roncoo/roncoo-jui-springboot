@@ -19,9 +19,8 @@ import com.roncoo.jui.common.bean.entity.RcDataDictionary;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**
- * 数据字典数据交换功能
  * 
- * @author LYQ
+ * @author wujing
  */
 public interface DataDictionaryDao {
 

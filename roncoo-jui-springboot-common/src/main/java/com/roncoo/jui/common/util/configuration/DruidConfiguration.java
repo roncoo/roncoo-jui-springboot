@@ -9,6 +9,10 @@ import org.springframework.context.annotation.Configuration;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
+/**
+ * 
+ * @author wujing
+ */
 @Configuration
 public class DruidConfiguration {
 	

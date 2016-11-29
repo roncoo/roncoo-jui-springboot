@@ -20,8 +20,7 @@ import com.roncoo.jui.common.util.jui.Page;
 
 /**
  * 
- * @author LYQ
- *
+ * @author wujing
  */
 public interface DataDictionaryListDao {
 	/**

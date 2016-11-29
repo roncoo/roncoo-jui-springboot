@@ -20,9 +20,8 @@ import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**
- * 数据字典明细服务功能
  * 
- * @author LYQ
+ * @author wujing
  */
 public interface DataDictionaryListService {
 

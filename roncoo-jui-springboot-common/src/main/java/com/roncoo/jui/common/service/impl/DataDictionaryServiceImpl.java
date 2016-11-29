@@ -26,9 +26,8 @@ import com.roncoo.jui.common.service.DataDictionaryService;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**
- * 数据字典
  * 
- * @author LYQ
+ * @author wujing
  */
 @Service
 public class DataDictionaryServiceImpl implements DataDictionaryService {
