@@ -10,10 +10,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  */
 @ServletComponentScan
 @SpringBootApplication
-public class Application {
+public class RoncooJuiSpringbootWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(RoncooJuiSpringbootWebApplication.class, args);
 	}
 
 }

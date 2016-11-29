@@ -38,7 +38,7 @@ public class LoginController {
 		return "redirect:/admin/index";
 	}
 
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLogin(@RequestParam(value = "code", defaultValue = "") String code, RedirectAttributes redirectAttributes, HttpSession session) {
 		Result<String> result = biz.oauth(code);
 		if (result.isStatus()) {
