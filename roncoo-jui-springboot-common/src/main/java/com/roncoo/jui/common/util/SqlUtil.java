@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
  * 
  * @author wujing
  */
-public class SqlUtil {
+public final class SqlUtil {
 	private SqlUtil() {
 	}
 

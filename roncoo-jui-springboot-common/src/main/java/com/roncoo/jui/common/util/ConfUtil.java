@@ -26,7 +26,6 @@ import java.util.Properties;
 public final class ConfUtil {
 
 	private ConfUtil() {
-		
 	}
 
 	/**

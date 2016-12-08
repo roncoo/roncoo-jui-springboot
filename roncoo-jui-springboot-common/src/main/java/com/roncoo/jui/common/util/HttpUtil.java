@@ -29,7 +29,10 @@ import com.fasterxml.jackson.databind.JsonNode;
  * 
  * @author wujing
  */
-public class HttpUtil {
+public final class HttpUtil {
+	private HttpUtil() {
+	}
+
 	private static final Logger logger = LoggerFactory.getLogger(HttpUtil.class);
 
 	private static SimpleClientHttpRequestFactory requestFactory = null;
