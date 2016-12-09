@@ -223,7 +223,10 @@
 							<h2>龙果学院开源项目汇总：</h2>
 							<div class="unit"><span>OSChina：</span><a href="http://git.oschina.net/roncoocom" target="_blank">http://git.oschina.net/roncoocom</a></div>
 							<div class="unit"><span>GitHub：</span><a href="https://github.com/roncoo" target="_blank">https://github.com/roncoo</a></div>
-							
+							<div class="divider"></div>
+							<h2>更新日志：</h2>
+							<div class="unit">2016-12-08 增加定时任务，异步调用功能。</div>
+							<div class="unit">2016-11-28 项目初始化，简单的增删改查。</div>
 						</div>
 					</div>
 				</div>
