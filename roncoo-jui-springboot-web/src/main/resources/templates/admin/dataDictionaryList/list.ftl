@@ -9,7 +9,7 @@
 		<div class="searchBar">
 			<ul class="searchContent">
 				<li>
-					<label>字段名：</label>
+					<label>字段KEY：</label>
 					<input type="text" name="fieldKey" value="${(bean.fieldKey)!}"/>
 				</li>
 			</ul>
@@ -40,7 +40,7 @@
 		<table class="list" width="100%" targetType="navTab" asc="asc" desc="desc" layoutH="116">
 			<thead>
 				<tr>
-					<th colspan="6" align="center">基本信息</th>
+					<th colspan="7" align="center">基本信息</th>
 					<th colspan="1">操作</th>
 				</tr>
 				<tr>
