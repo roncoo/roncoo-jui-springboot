@@ -1,7 +1,10 @@
 # 龙果开源 roncoo-jui-springboot
+* 该项目是为了大家更好地运用Spring Boot的功能，进行实战。
+* 如果没有使用过Spring Boot，也是一个学习的好项目。
+* 可以快速实现一个基于Spring Boot的后台管理系统，前端是基于JUI。
 
-###修改日志
-2016-12-19 修改默认登录模式。
+###更新日志
+2016-12-19 修改默认登录模式，增加防止XSS攻击的过滤器。
 
 2016-12-08 增加定时任务，异步调用功能。
 
@@ -11,6 +14,7 @@
 1. 后台框架基于Spring Boot，前台框架为JUI
 2. 实现了简单是增删改查，主要是运用Spring Boot进行实战
 3. 功能会继续添加，欢迎大家star和fork
+
 
 ####在线预览：[http://demo.adminlte.roncoo.com/roncoo-jui-springboot/](http://demo.adminlte.roncoo.com/roncoo-jui-springboot/)
 
