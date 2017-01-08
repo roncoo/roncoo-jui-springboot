@@ -3,6 +3,9 @@
  */
 package com.roncoo.jui.common.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -10,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author wujing
  */
 public final class JSONUtil {
+	private static final Logger logger = LoggerFactory.getLogger(JSONUtil.class);
 
 	private JSONUtil() {
 	}
@@ -19,6 +23,7 @@ public final class JSONUtil {
 		try {
 			return m.writeValueAsString(o);
 		} catch (JsonProcessingException e) {
+			logger.error("json解析出错", e);
 			return "";
 		}
 	}

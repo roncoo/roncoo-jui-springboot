@@ -18,12 +18,16 @@ package com.roncoo.jui.common.util;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 配置文件读取工具类
  * 
  * @author wujing
  */
 public final class ConfUtil {
+	private static final Logger logger = LoggerFactory.getLogger(ConfUtil.class);
 
 	private ConfUtil() {
 	}
@@ -39,7 +43,7 @@ public final class ConfUtil {
 			// 从类路径下读取属性文件
 			properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("system.properties"));
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error("读取配置文件出错", e);
 		}
 	}
 

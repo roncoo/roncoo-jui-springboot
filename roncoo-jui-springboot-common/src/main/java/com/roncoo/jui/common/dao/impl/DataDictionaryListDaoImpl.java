@@ -42,7 +42,6 @@ public class DataDictionaryListDaoImpl implements DataDictionaryListDao {
 	@Override
 	public Page<RcDataDictionaryList> listForPage(int currentPage, int numPerPage, String fieldCode, RcDataDictionaryList rcDataDictionaryList) {
 		RcDataDictionaryListExample example = new RcDataDictionaryListExample();
-		example.setOrderByClause("sort asc");
 		Criteria c = example.createCriteria();
 		c.andFieldCodeEqualTo(fieldCode);
 
@@ -52,8 +51,7 @@ public class DataDictionaryListDaoImpl implements DataDictionaryListDao {
 		}
 
 		// 字段排序
-		StringBuffer orderByClause = new StringBuffer();
-		example.setOrderByClause(orderByClause.append("update_time desc").toString());
+		example.setOrderByClause("sort asc, update_time desc");
 
 		int totalCount = mapper.countByExample(example);
 		numPerPage = SqlUtil.checkPageSize(numPerPage);

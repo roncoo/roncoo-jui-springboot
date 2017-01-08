@@ -50,7 +50,7 @@ public class DataDictionaryDaoImpl implements DataDictionaryDao {
 		}
 
 		// 字段排序
-		StringBuffer orderByClause = new StringBuffer();
+		StringBuilder orderByClause = new StringBuilder();
 		if (StringUtils.hasText(orderField)) {
 			orderByClause.append(orderField).append(" ").append(orderDirection).append(", ");
 		}

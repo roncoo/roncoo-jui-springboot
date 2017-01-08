@@ -53,10 +53,10 @@ public interface DataDictionaryListDao {
 	/**
 	 * 根据FieldCode删除
 	 * 
-	 * @param FieldCode
+	 * @param fieldCode
 	 * @return
 	 */
-	int deleteByFieldCode(String FieldCode);
+	int deleteByFieldCode(String fieldCode);
 
 	/**
 	 * 

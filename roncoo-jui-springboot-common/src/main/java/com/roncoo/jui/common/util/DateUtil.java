@@ -36,9 +36,9 @@ public final class DateUtil {
 	private DateUtil() {
 	}
 
-	public static Date date = null;
-	public static DateFormat dateFormat = null;
-	public static Calendar calendar = null;
+	private static Date date = null;
+	private static DateFormat dateFormat = null;
+	private static Calendar calendar = null;
 
 	/**
 	 * 时间转换：长整型转换为日期字符型
