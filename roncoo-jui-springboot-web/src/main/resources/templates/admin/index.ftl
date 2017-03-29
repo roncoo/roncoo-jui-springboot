@@ -214,7 +214,7 @@
 
 						<div class="pageFormContent" layoutH="80" style="margin-right: 230px">
 							<h2>项目介绍：</h2>
-							<div class="unit">后台框架：Spring Boot v1.4.2</div>
+							<div class="unit">后台框架：Spring Boot v1.5.2</div>
 							<div class="unit">前端框架：JUI v1.5.2</div>
 							<div class="unit">1. 后台框架基于Spring Boot，前台框架为JUI</div>
 							<div class="unit">2. 实现了简单是增删改查，主要是运用Spring Boot进行实战</div>
@@ -225,6 +225,9 @@
 							<div class="unit"><span>GitHub：</span><a href="https://github.com/roncoo" target="_blank">https://github.com/roncoo</a></div>
 							<div class="divider"></div>
 							<h2>更新日志：</h2>
+							<div class="unit">2017-03-29 更新spring依赖版本到Brussels-SR1</div>
+							<div class="unit">2017-01-08 修改sonar检测出来的若干个bug。</div>
+							<div class="unit">2016-12-19 修改默认登录模式，增加防止XSS攻击的过滤器。</div>
 							<div class="unit">2016-12-08 增加定时任务，异步调用功能。</div>
 							<div class="unit">2016-11-28 项目初始化，简单的增删改查。</div>
 						</div>
