@@ -5,7 +5,6 @@
 #
 # Structure for table "rc_data_dictionary"
 #
-
 CREATE TABLE `rc_data_dictionary` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `status_id` char(1) NOT NULL DEFAULT '1' COMMENT '状态',
@@ -21,7 +20,6 @@ CREATE TABLE `rc_data_dictionary` (
 #
 # Structure for table "rc_data_dictionary_list"
 #
-
 CREATE TABLE `rc_data_dictionary_list` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `status_id` char(1) NOT NULL DEFAULT '1' COMMENT '状态',
@@ -34,4 +32,18 @@ CREATE TABLE `rc_data_dictionary_list` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='数据字典明细表';
+
+#
+# Structure for table "rc_report"
+#
+CREATE TABLE `rc_report` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `status_id` char(1) NOT NULL DEFAULT '1' COMMENT '状态',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '修改时间',
+  `sort` int(11) NOT NULL DEFAULT '1' COMMENT '排序',
+  `user_email` varchar(255) DEFAULT NULL COMMENT '用户QQ',
+  `user_nickname` varchar(255) DEFAULT NULL COMMENT '用户昵称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报表';
 
