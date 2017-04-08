@@ -21,7 +21,7 @@ public class RoncooAsyncBiz extends BaseController {
 		sw.start("A");
 		Thread.sleep(random.nextInt(10000));
 		sw.stop();
-		logger.info(sw.prettyPrint());
+		//logger.info(sw.prettyPrint());
 		return new AsyncResult<String>("任务一完成");
 	}
 
@@ -31,7 +31,7 @@ public class RoncooAsyncBiz extends BaseController {
 		sw.start("B");
 		Thread.sleep(random.nextInt(10000));
 		sw.stop();
-		logger.info(sw.prettyPrint());
+		//logger.info(sw.prettyPrint());
 		return new AsyncResult<String>("任务二完成");
 	}
 
@@ -41,7 +41,7 @@ public class RoncooAsyncBiz extends BaseController {
 		sw.start("C");
 		Thread.sleep(random.nextInt(10000));
 		sw.stop();
-		logger.info(sw.prettyPrint());
+		//logger.info(sw.prettyPrint());
 		return new AsyncResult<String>("任务三完成");
 	}
 

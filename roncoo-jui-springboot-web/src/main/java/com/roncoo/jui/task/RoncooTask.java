@@ -30,7 +30,7 @@ public class RoncooTask extends Base {
 		sw.start("C");
 		roncooAsyncBiz.doTaskThree();
 		sw.stop();
-		logger.info(sw.prettyPrint());
+		//logger.info(sw.prettyPrint());
 	}
 
 }
