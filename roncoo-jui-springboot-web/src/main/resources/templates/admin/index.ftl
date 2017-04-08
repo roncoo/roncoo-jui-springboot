@@ -225,6 +225,7 @@
 							<div class="unit"><span>GitHub：</span><a href="https://github.com/roncoo" target="_blank">https://github.com/roncoo</a></div>
 							<div class="divider"></div>
 							<h2>更新日志：</h2>
+							<div class="unit">2017-04-08 添加应用发布操作脚本，添加报表功能</div>
 							<div class="unit">2017-03-29 更新spring依赖版本到Brussels-SR1</div>
 							<div class="unit">2017-01-08 修改sonar检测出来的若干个bug。</div>
 							<div class="unit">2016-12-19 修改默认登录模式，增加防止XSS攻击的过滤器。</div>
