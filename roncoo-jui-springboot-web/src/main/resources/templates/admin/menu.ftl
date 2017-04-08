@@ -28,6 +28,15 @@
 							</li>
 						</ul>
 					</li>
+					
+					<li>
+						<a>报表管理</a>
+						<ul>
+							<li>
+								<a href="${base}/admin/report/list" target="navTab" rel="report">报表管理</a>
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
