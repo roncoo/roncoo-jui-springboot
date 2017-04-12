@@ -5,7 +5,7 @@
 
 ## 在线预览：[http://demo.adminlte.roncoo.com/roncoo-jui-springboot/](http://demo.adminlte.roncoo.com/roncoo-jui-springboot/)
 
-## 视频学习：[http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d](http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d)
+## 视频学习：[http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d](Spring Boot教程全集)
 
 ### 更新日志
 2017-04-08 添加应用发布操作脚本，添加报表功能
