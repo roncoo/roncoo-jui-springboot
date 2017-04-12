@@ -212,17 +212,13 @@
 							
 						</div>
 
-						<div class="pageFormContent" layoutH="80" style="margin-right: 230px">
+						<div class="pageFormContent" layoutH="80">
 							<h2>项目介绍：</h2>
 							<div class="unit">后台框架：Spring Boot v1.5.2</div>
 							<div class="unit">前端框架：JUI v1.5.2</div>
 							<div class="unit">1. 后台框架基于Spring Boot，前台框架为JUI</div>
 							<div class="unit">2. 实现了简单是增删改查，主要是运用Spring Boot进行实战</div>
 							<div class="unit">3. 功能会继续添加，欢迎大家Star和Fork</div>
-							<div class="divider"></div>
-							<h2>龙果学院开源项目汇总：</h2>
-							<div class="unit"><span>OSChina：</span><a href="http://git.oschina.net/roncoocom" target="_blank">http://git.oschina.net/roncoocom</a></div>
-							<div class="unit"><span>GitHub：</span><a href="https://github.com/roncoo" target="_blank">https://github.com/roncoo</a></div>
 							<div class="divider"></div>
 							<h2>更新日志：</h2>
 							<div class="unit">2017-04-08 添加应用发布操作脚本，添加报表功能</div>
