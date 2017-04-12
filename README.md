@@ -3,7 +3,9 @@
 * 如果没有使用过Spring Boot，也是一个学习的好项目。
 * 可以快速实现一个基于Spring Boot的后台管理系统，前端是基于JUI。
 
-### 在线预览：[http://demo.adminlte.roncoo.com/roncoo-jui-springboot/](http://demo.adminlte.roncoo.com/roncoo-jui-springboot/)
+## 在线预览：[http://demo.adminlte.roncoo.com/roncoo-jui-springboot/](http://demo.adminlte.roncoo.com/roncoo-jui-springboot/)
+
+## 视频学习：[http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d](http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d)
 
 ### 更新日志
 2017-04-08 添加应用发布操作脚本，添加报表功能

@@ -202,14 +202,16 @@
 					<div class="page unitBox">
 						<div class="accountInfo">
 							<p>
-								<span>龙果学院 - 开源项目 - Spring Boot实战</span>
+								<span>龙果学院 - Spring Boot全集 <a href="http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d" target="_blank">http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d</a></span>
+							</p>
+							<p>
+								<span>龙果学院 - 开源项目 - Spring Boot实战 </span>
 							</p>
 							<p>
 								<span>OSChina地址：</span><a href="http://git.oschina.net/roncoocom/roncoo-jui-springboot" target="_blank">http://git.oschina.net/roncoocom/roncoo-jui-springboot</a>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<span>GitHub地址：</span><a href="https://github.com/roncoo/roncoo-jui-springboot" target="_blank">https://github.com/roncoo/roncoo-jui-springboot</a>
 							</p>
-							
 						</div>
 
 						<div class="pageFormContent" layoutH="80">
