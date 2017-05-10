@@ -6,5 +6,6 @@
 *.mvn
 *.project
 *.springBeans
+*.factorypath
 */src/main/resources/config/prod/system.properties
 */src/main/resources/application-pro.properties
