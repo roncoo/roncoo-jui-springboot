@@ -8,6 +8,8 @@
 ### 视频学习：[Spring Boot教程全集](http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d)
 
 ### 更新日志
+2017-05-17 更新mybatis-spring-boot-starter版本，集成[roncoo-spring-boot-starter-druid](http://git.oschina.net/roncoocom/roncoo-spring-boot)
+
 2017-04-08 添加应用发布操作脚本，添加报表功能
 
 2017-03-29 更新spring依赖版本到Brussels-SR1

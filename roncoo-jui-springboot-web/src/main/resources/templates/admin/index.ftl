@@ -223,6 +223,7 @@
 							<div class="unit">3. 功能会继续添加，欢迎大家Star和Fork</div>
 							<div class="divider"></div>
 							<h2>更新日志：</h2>
+							<div class="unit">2017-05-17 更新mybatis-spring-boot-starter版本，集成roncoo-spring-boot-starter-druid</div>
 							<div class="unit">2017-04-08 添加应用发布操作脚本，添加报表功能</div>
 							<div class="unit">2017-03-29 更新spring依赖版本到Brussels-SR1</div>
 							<div class="unit">2017-01-08 修改sonar检测出来的若干个bug。</div>
