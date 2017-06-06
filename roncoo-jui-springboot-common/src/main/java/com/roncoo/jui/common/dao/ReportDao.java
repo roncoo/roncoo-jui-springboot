@@ -33,6 +33,12 @@ public interface ReportDao {
 	 * @return
 	 */
 	Page<RcReport> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, RcReport rcReport);
+
+	/**
+	 * @param rcReport
+	 * @return
+	 */
+	Integer insert(RcReport rcReport);
 	
 
 }

@@ -38,12 +38,20 @@ public class ReportServiceImpl extends Base implements ReportService {
 
 	@Override
 	public Result<Page<RcReport>> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, RcReport rcReport) {
-
 		Result<Page<RcReport>> result = new Result<>();
 		Page<RcReport> page = dao.listForPage(currentPage, numPerPage, orderField, orderDirection, rcReport);
 		result.setStatus(true);
 		result.setErrCode(0);
 		result.setResultData(page);
+		return result;
+	}
+
+	@Override
+	public Result<Integer> save(RcReport rcReport) {
+		Result<Integer> result = new Result<>();
+		result.setStatus(true);
+		result.setErrCode(0);
+		result.setResultData(dao.insert(rcReport));
 		return result;
 	}
 

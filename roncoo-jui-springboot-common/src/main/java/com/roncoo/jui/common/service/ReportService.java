@@ -35,4 +35,9 @@ public interface ReportService {
 	 */
 	Result<Page<RcReport>> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, RcReport rcReport);
 
+	/**
+	 * @param rcReport
+	 */
+	Result<Integer> save(RcReport rcReport);
+
 }

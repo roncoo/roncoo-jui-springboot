@@ -15,6 +15,8 @@
  */
 package com.roncoo.jui.common.dao.impl;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -39,10 +41,10 @@ public class ReportDaoImpl implements ReportDao {
 
 	@Override
 	public Page<RcReport> listForPage(int currentPage, int numPerPage, String orderField, String orderDirection, RcReport rcReport) {
-		
+
 		RcReportExample example = new RcReportExample();
 		Criteria c = example.createCriteria();
-		
+
 		// 邮箱查询
 		if (StringUtils.hasText(rcReport.getUserEmail())) {
 			c.andUserEmailLike(SqlUtil.like(rcReport.getUserEmail()));
@@ -66,6 +68,13 @@ public class ReportDaoImpl implements ReportDao {
 		return page;
 	}
 
-	
-	
+	@Override
+	public Integer insert(RcReport rcReport) {
+		rcReport.setStatusId("Y");
+		rcReport.setCreateTime(new Date());
+		rcReport.setUpdateTime(rcReport.getCreateTime());
+		rcReport.setSort(100);
+		return mapper.insertSelective(rcReport);
+	}
+
 }
