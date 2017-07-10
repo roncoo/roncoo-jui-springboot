@@ -46,7 +46,7 @@ public class LoginBiz {
 	 */
 	public Result<String> login() {
 		Result<String> result = new Result<String>();
-		String url = ConfUtil.getProperty("baseUrl") + ConfUtil.getProperty("oauth2AuthorizeUrl");
+		String url = ConfUtil.getProperty("oauth2AuthorizeUrl");
 		try {
 			url = url.replace("{CLIENTID}", ConfUtil.getProperty("clientId")).replace("{RESPONSETYPE}", "code").replace("{REDIRECTURI}", URLEncoder.encode(ConfUtil.getProperty("redirectUrl"), "utf-8"));
 			result.setStatus(true);
@@ -75,7 +75,7 @@ public class LoginBiz {
 		param.put("clientSecret", ConfUtil.getProperty("clientSecret"));
 		param.put("code", code);
 		param.put("grantType", "authorization_code");
-		String url = ConfUtil.getProperty("baseUrl") + ConfUtil.getProperty("apiAccessTokenUrl");
+		String url = ConfUtil.getProperty("apiAccessTokenUrl");
 		JsonNode json = HttpUtil.postForObject(url, param);
 		int status = json.get("errCode").asInt();
 		if (0 == status) {

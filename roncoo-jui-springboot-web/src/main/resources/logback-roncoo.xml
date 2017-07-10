@@ -48,9 +48,9 @@
 	</springProfile>
 
 	<!-- 生产环境 -->
-	<springProfile name="prod">
+	<springProfile name="pro">
 		<appender name="PROD_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-			<file>${PRO_FILE_PATH}</file>
+			<file>${PRO_FILE_PATH}/warn</file>
 			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 				<fileNamePattern>${PROD_FILE_PATH}/warn.%d{yyyy-MM-dd}.log</fileNamePattern>
 				<MaxHistory>100</MaxHistory>
