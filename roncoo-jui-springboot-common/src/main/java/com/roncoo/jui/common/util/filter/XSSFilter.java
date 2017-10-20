@@ -59,9 +59,7 @@ class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 			int length = values.length;
 			String[] escapseValues = new String[length];
 			for (int i = 0; i < length; i++) {
-				System.out.println(values[i]);
 				escapseValues[i] = HtmlUtils.htmlEscape(values[i]);
-				System.out.println(escapseValues[i]);
 			}
 			return escapseValues;
 		}
