@@ -1,4 +1,4 @@
-package com.roncoo.jui.common.bean.entity;
+package com.roncoo.jui.common.entity;
 
 import java.util.ArrayList;
 import java.util.Date;

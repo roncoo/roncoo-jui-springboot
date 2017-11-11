@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StopWatch;
 
-import com.roncoo.jui.common.bean.dto.Result;
-import com.roncoo.jui.common.bean.entity.RcDataDictionary;
-import com.roncoo.jui.common.bean.entity.RcReport;
+import com.roncoo.jui.common.entity.RcDataDictionary;
+import com.roncoo.jui.common.entity.RcReport;
 import com.roncoo.jui.common.service.DataDictionaryService;
 import com.roncoo.jui.common.service.ReportService;
 import com.roncoo.jui.common.util.base.BaseController;
+import com.roncoo.jui.common.util.base.Result;
 
 @Service
 public class RoncooAsyncBiz extends BaseController {

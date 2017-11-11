@@ -1,4 +1,4 @@
-package com.roncoo.jui.common.bean.dto;
+package com.roncoo.jui.common.util.jui;
 
 import java.io.Serializable;
 

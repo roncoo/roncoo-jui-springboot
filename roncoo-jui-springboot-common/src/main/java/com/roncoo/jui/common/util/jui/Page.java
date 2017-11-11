@@ -24,7 +24,7 @@ import java.util.List;
  * @author wujing
  * @param <T>
  */
-public class Page<T> implements Serializable {
+public class Page<T extends Serializable> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -62,6 +62,9 @@ public class Page<T> implements Serializable {
 	 * 排序方式：asc or desc
 	 */
 	private String orderDirection;
+	
+	public Page() {
+	}
 
 	/**
 	 * 构造函数

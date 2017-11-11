@@ -21,10 +21,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
-import com.roncoo.jui.common.bean.entity.RcDataDictionaryListExample;
-import com.roncoo.jui.common.bean.entity.RcDataDictionaryListExample.Criteria;
 import com.roncoo.jui.common.dao.DataDictionaryListDao;
+import com.roncoo.jui.common.entity.RcDataDictionaryList;
+import com.roncoo.jui.common.entity.RcDataDictionaryListExample;
+import com.roncoo.jui.common.entity.RcDataDictionaryListExample.Criteria;
 import com.roncoo.jui.common.mapper.RcDataDictionaryListMapper;
 import com.roncoo.jui.common.util.SqlUtil;
 import com.roncoo.jui.common.util.jui.Page;

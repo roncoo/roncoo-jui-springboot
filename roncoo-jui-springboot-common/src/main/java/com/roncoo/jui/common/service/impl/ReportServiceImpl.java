@@ -18,11 +18,11 @@ package com.roncoo.jui.common.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.roncoo.jui.common.bean.dto.Result;
-import com.roncoo.jui.common.bean.entity.RcReport;
 import com.roncoo.jui.common.dao.ReportDao;
+import com.roncoo.jui.common.entity.RcReport;
 import com.roncoo.jui.common.service.ReportService;
 import com.roncoo.jui.common.util.base.Base;
+import com.roncoo.jui.common.util.base.Result;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**

@@ -21,10 +21,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import com.roncoo.jui.common.bean.entity.RcReport;
-import com.roncoo.jui.common.bean.entity.RcReportExample;
-import com.roncoo.jui.common.bean.entity.RcReportExample.Criteria;
 import com.roncoo.jui.common.dao.ReportDao;
+import com.roncoo.jui.common.entity.RcReport;
+import com.roncoo.jui.common.entity.RcReportExample;
+import com.roncoo.jui.common.entity.RcReportExample.Criteria;
 import com.roncoo.jui.common.mapper.RcReportMapper;
 import com.roncoo.jui.common.util.SqlUtil;
 import com.roncoo.jui.common.util.jui.Page;

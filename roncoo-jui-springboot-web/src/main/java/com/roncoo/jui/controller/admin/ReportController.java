@@ -28,9 +28,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.roncoo.jui.biz.ReportBiz;
-import com.roncoo.jui.common.bean.dto.Result;
-import com.roncoo.jui.common.bean.entity.RcReport;
+import com.roncoo.jui.common.entity.RcReport;
 import com.roncoo.jui.common.util.base.BaseController;
+import com.roncoo.jui.common.util.base.Result;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**

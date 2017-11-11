@@ -25,9 +25,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.roncoo.jui.biz.DataDictionaryListBiz;
-import com.roncoo.jui.common.bean.dto.Result;
-import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
+import com.roncoo.jui.common.entity.RcDataDictionaryList;
 import com.roncoo.jui.common.util.base.BaseController;
+import com.roncoo.jui.common.util.base.Result;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**

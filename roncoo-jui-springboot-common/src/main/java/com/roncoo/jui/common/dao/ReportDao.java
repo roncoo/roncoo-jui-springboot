@@ -15,7 +15,7 @@
  */
 package com.roncoo.jui.common.dao;
 
-import com.roncoo.jui.common.bean.entity.RcReport;
+import com.roncoo.jui.common.entity.RcReport;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**

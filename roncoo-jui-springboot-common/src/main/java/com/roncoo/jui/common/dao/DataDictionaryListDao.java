@@ -15,7 +15,7 @@
  */
 package com.roncoo.jui.common.dao;
 
-import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
+import com.roncoo.jui.common.entity.RcDataDictionaryList;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**

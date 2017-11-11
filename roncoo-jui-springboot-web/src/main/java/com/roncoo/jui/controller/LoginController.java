@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.roncoo.jui.biz.LoginBiz;
-import com.roncoo.jui.common.bean.dto.Result;
+import com.roncoo.jui.common.util.base.Result;
 
 /**
  * @author wujing

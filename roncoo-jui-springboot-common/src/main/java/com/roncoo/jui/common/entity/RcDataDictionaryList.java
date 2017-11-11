@@ -1,9 +1,9 @@
-package com.roncoo.jui.common.bean.entity;
+package com.roncoo.jui.common.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class RcReport implements Serializable {
+public class RcDataDictionaryList implements Serializable {
     private Long id;
 
     private String statusId;
@@ -12,11 +12,15 @@ public class RcReport implements Serializable {
 
     private Date updateTime;
 
+    private String fieldCode;
+
+    private String fieldKey;
+
+    private String fieldValue;
+
     private Integer sort;
 
-    private String userEmail;
-
-    private String userNickname;
+    private String remark;
 
     private static final long serialVersionUID = 1L;
 
@@ -52,6 +56,30 @@ public class RcReport implements Serializable {
         this.updateTime = updateTime;
     }
 
+    public String getFieldCode() {
+        return fieldCode;
+    }
+
+    public void setFieldCode(String fieldCode) {
+        this.fieldCode = fieldCode == null ? null : fieldCode.trim();
+    }
+
+    public String getFieldKey() {
+        return fieldKey;
+    }
+
+    public void setFieldKey(String fieldKey) {
+        this.fieldKey = fieldKey == null ? null : fieldKey.trim();
+    }
+
+    public String getFieldValue() {
+        return fieldValue;
+    }
+
+    public void setFieldValue(String fieldValue) {
+        this.fieldValue = fieldValue == null ? null : fieldValue.trim();
+    }
+
     public Integer getSort() {
         return sort;
     }
@@ -60,20 +88,12 @@ public class RcReport implements Serializable {
         this.sort = sort;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail == null ? null : userEmail.trim();
-    }
-
-    public String getUserNickname() {
-        return userNickname;
-    }
-
-    public void setUserNickname(String userNickname) {
-        this.userNickname = userNickname == null ? null : userNickname.trim();
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     @Override
@@ -86,9 +106,11 @@ public class RcReport implements Serializable {
         sb.append(", statusId=").append(statusId);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
+        sb.append(", fieldCode=").append(fieldCode);
+        sb.append(", fieldKey=").append(fieldKey);
+        sb.append(", fieldValue=").append(fieldValue);
         sb.append(", sort=").append(sort);
-        sb.append(", userEmail=").append(userEmail);
-        sb.append(", userNickname=").append(userNickname);
+        sb.append(", remark=").append(remark);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

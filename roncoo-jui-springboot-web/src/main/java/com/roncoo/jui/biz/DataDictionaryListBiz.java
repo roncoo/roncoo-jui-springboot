@@ -18,9 +18,9 @@ package com.roncoo.jui.biz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.roncoo.jui.common.bean.dto.Result;
-import com.roncoo.jui.common.bean.entity.RcDataDictionaryList;
+import com.roncoo.jui.common.entity.RcDataDictionaryList;
 import com.roncoo.jui.common.service.DataDictionaryListService;
+import com.roncoo.jui.common.util.base.Result;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**

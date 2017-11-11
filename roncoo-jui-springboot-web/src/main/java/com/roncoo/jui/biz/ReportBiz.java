@@ -23,10 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.roncoo.jui.common.bean.dto.Result;
-import com.roncoo.jui.common.bean.entity.RcReport;
+import com.roncoo.jui.common.entity.RcReport;
 import com.roncoo.jui.common.service.ReportService;
 import com.roncoo.jui.common.util.base.Base;
+import com.roncoo.jui.common.util.base.Result;
 import com.roncoo.jui.common.util.excel.ReportExcelUtil;
 import com.roncoo.jui.common.util.jui.Page;
 

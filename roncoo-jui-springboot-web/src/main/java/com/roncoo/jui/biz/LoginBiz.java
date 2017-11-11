@@ -26,9 +26,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.roncoo.jui.common.bean.dto.Result;
 import com.roncoo.jui.common.util.ConfUtil;
 import com.roncoo.jui.common.util.HttpUtil;
+import com.roncoo.jui.common.util.base.Result;
 
 /**
  * 登录

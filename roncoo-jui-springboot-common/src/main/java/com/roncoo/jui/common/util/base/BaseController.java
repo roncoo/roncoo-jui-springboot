@@ -15,8 +15,8 @@
  */
 package com.roncoo.jui.common.util.base;
 
-import com.roncoo.jui.common.bean.dto.Jui;
 import com.roncoo.jui.common.util.JSONUtil;
+import com.roncoo.jui.common.util.jui.Jui;
 
 /**
  * 控制基础类，所以controller都应该继承这个类

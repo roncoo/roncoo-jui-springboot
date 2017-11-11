@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.roncoo.jui.common.bean.dto.RoncooException;
 import com.roncoo.jui.common.util.base.BaseController;
+import com.roncoo.jui.common.util.base.RoncooException;
 
 /**
  * 错误处理

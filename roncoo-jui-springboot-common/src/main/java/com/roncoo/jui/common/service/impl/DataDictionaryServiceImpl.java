@@ -19,10 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.roncoo.jui.common.bean.dto.Result;
-import com.roncoo.jui.common.bean.entity.RcDataDictionary;
 import com.roncoo.jui.common.dao.DataDictionaryDao;
+import com.roncoo.jui.common.entity.RcDataDictionary;
 import com.roncoo.jui.common.service.DataDictionaryService;
+import com.roncoo.jui.common.util.base.Result;
 import com.roncoo.jui.common.util.jui.Page;
 
 /**
