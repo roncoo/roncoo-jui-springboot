@@ -30,10 +30,10 @@ public class LoginController {
 		if (result.isStatus()) {
 
 			// 本地发布请打开这里即可，请注释下面  【return "redirect:" + result.getResultData();】
-			session.setAttribute("roncoo", "www.roncoo.com");
+			//session.setAttribute("roncoo", "www.roncoo.com");
 			
 			// 进行龙果学院授权登录
-			//return "redirect:" + result.getResultData();
+			return "redirect:" + result.getResultData();
 		}
 		return "redirect:/admin/index";
 	}

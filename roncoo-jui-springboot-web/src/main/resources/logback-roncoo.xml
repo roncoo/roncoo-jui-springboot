@@ -3,10 +3,8 @@
 
 	<!-- 文件输出格式 -->
 	<property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
-	<!-- test文件路径 -->
-	<property name="TEST_FILE_PATH" value="/home/roncoo/opensource/roncoo/roncoo-jui-springboot/logs" />
 	<!-- pro文件路径 -->
-	<property name="PROD_FILE_PATH" value="/home/roncoo/opensource/roncoo/roncoo-jui-springboot/logs" />
+	<property name="PROD_FILE_PATH" value="/tmp/logs/roncoo-jui-springboot" />
 
 	<!-- 开发环境 -->
 	<springProfile name="dev">
@@ -24,31 +22,8 @@
 		</root>
 	</springProfile>
 
-	<!-- 测试环境 -->
-	<springProfile name="test">
-		<!-- 每天产生一个文件 -->
-		<appender name="TEST-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-			<!-- 文件路径 -->
-			<file>${TEST_FILE_PATH}</file>
-			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-				<!-- 文件名称 -->
-				<fileNamePattern>${TEST_FILE_PATH}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
-				<!-- 文件最大保存历史数量 -->
-				<MaxHistory>100</MaxHistory>
-			</rollingPolicy>
-			
-			<layout class="ch.qos.logback.classic.PatternLayout">
-				<pattern>${PATTERN}</pattern>
-			</layout>
-		</appender>
-		
-		<root level="info">
-			<appender-ref ref="TEST-FILE" />
-		</root>
-	</springProfile>
-
 	<!-- 生产环境 -->
-	<springProfile name="pro">
+	<springProfile name="prod">
 		<appender name="PROD_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 			<file>${PRO_FILE_PATH}/warn</file>
 			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">

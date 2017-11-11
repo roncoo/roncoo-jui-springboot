@@ -49,9 +49,9 @@
 					<#list page.list as bean>
 						<tr target="sid" rel="${bean.id}">
 							<td align="center">${bean_index+1}</td>
-							<td>${bean.userEmail}</td>
-							<td>${bean.userNickname}</td>
-							<td>${bean.sort}</td>
+							<td>${bean.userEmail!}</td>
+							<td>${bean.userNickname!}</td>
+							<td>${bean.sort!}</td>
 							<td>${bean.createTime?string('yyyy-MM-dd HH:mm:ss')}</td>
 							<td>${bean.updateTime?string('yyyy-MM-dd HH:mm:ss')}</td>
 						</tr>

@@ -202,11 +202,8 @@
 					<div class="page unitBox">
 						<div class="accountInfo">
 							<p>
-								<span>龙果学院 - Spring Boot全集 <a href="http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d" target="_blank">http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d</a></span>
-							</p>
-							<p>
-								<span>龙果学院 - 开源项目 - Spring Boot实战 </span>
-							</p>
+                                <span>龙果开源- roncoo-jui-springboot</span>
+                            </p>
 							<p>
 								<span>OSChina地址：</span><a href="http://git.oschina.net/roncoocom/roncoo-jui-springboot" target="_blank">http://git.oschina.net/roncoocom/roncoo-jui-springboot</a>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -230,7 +227,12 @@
 							<div class="unit">2016-12-19 修改默认登录模式，增加防止XSS攻击的过滤器。</div>
 							<div class="unit">2016-12-08 增加定时任务，异步调用功能。</div>
 							<div class="unit">2016-11-28 项目初始化，简单的增删改查。</div>
+							<div class="divider"></div>
+							<span>龙果学院 - Spring Boot全集 <a href="http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d" target="_blank">http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d</a></span>
+                            
 						</div>
+						
+						 
 					</div>
 				</div>
 			</div>

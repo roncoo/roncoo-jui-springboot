@@ -1,12 +1,12 @@
 #!/bin/sh
 
 ## 自定义
-SERVICE_DIR=/home/roncoo/roncoo-opensource/
+SERVICE_DIR=/home/roncoo/rc-os/roncoo-jui-springboot/
 SERVICE_NAME=roncoo-jui-springboot
-SPRING_PROFILES_ACTIVE=test
-          
+SPRING_PROFILES_ACTIVE=prod
+
 ## java env
-export JAVA_HOME=/opt/jdk1.8.0_77
+export JAVA_HOME=/opt/jdk1.8
 export JRE_HOME=$JAVA_HOME/jre
 
 case "$1" in 
@@ -20,7 +20,7 @@ case "$1" in
 				SPRING_PROFILES_ACTIVE=$2
 			fi
 			echo "spring.profiles.active=${SPRING_PROFILES_ACTIVE}"
-			exec nohup ${JRE_HOME}/bin/java -Xms128m -Xmx256m -jar ${SERVICE_DIR}/${SERVICE_NAME}\.jar --spring.profiles.active=${SPRING_PROFILES_ACTIVE} >/dev/null 2>&1 &
+			exec nohup ${JRE_HOME}/bin/java -Xms256m -Xmx256m -jar ${SERVICE_DIR}/${SERVICE_NAME}\.jar --spring.profiles.active=${SPRING_PROFILES_ACTIVE} >/dev/null 2>&1 &
 			echo "start success"
 		else
 			echo "${SERVICE_NAME} is start"
@@ -33,7 +33,7 @@ case "$1" in
 		then
 			echo "${SERVICE_NAME} is stop"
 		else
-			kill  ${procedure}
+			kill ${procedure}
 			sleep 1
 			argprocedure=`ps -ef | grep -w "${SERVICE_DIR}/${SERVICE_NAME}" |grep -w "java"| grep -v "grep" | awk '{print $2}'`
 			if [ "${argprocedure}" = "" ];

@@ -61,7 +61,7 @@
 							<td>${bean.fieldName}</td>
 							<td>${bean.fieldCode}</td>
 							<td>${bean.sort}</td>
-							<td>${bean.remark}</td>
+							<td>${bean.remark!}</td>
 							<td>${bean.updateTime?string('yyyy-MM-dd HH:mm:ss')}</td>
 							<td>
 								<a title="确定要删除吗？" target="ajaxTodo" href="${base}/admin/dataDictionary/delete?id=${bean.id}&fieldCode=${bean.fieldCode}" class="btnDel">删除</a>

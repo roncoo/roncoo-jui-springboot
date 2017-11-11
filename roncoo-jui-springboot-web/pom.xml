@@ -22,7 +22,7 @@
 
 	<build>
 		<!-- 自定义包名 -->
-		<finalName>${project.artifactId}</finalName>
+		<finalName>roncoo-jui-springboot</finalName>
 
 		<plugins>
 			<plugin>
@@ -35,6 +35,9 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
