@@ -30,3 +30,6 @@
 ### 技术交流
 * QQ2群: 601146630
 * QQ1群: 213097382 (满)
+
+### 云服务器推荐
+[千铭云：https://www.chanmir.cn/?u=6C53A9](https://www.chanmir.cn/?u=6C53A9)
