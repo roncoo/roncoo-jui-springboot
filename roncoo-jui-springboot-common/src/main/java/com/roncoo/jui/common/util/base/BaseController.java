@@ -42,7 +42,7 @@ public class BaseController extends Base {
 		return JSONUtil.toJSONString(new Jui(200, navTabId, "操作成功", "closeCurrent"));
 	}
 	
-	public static String deleteSuccess(String navTabId) {
+	public static String delete(String navTabId) {
 		return JSONUtil.toJSONString(new Jui(200, navTabId, "操作成功", ""));
 	}
 

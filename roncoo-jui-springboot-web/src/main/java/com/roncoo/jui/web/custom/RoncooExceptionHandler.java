@@ -1,4 +1,4 @@
-package com.roncoo.jui.handler;
+package com.roncoo.jui.web.custom;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,7 +14,7 @@ import com.roncoo.jui.common.util.base.RoncooException;
  * @author wujing
  */
 @RestControllerAdvice
-public class BizExceptionHandler extends BaseController {
+public class RoncooExceptionHandler extends BaseController {
 
 	@ExceptionHandler({ RoncooException.class })
 	@ResponseStatus(HttpStatus.OK)

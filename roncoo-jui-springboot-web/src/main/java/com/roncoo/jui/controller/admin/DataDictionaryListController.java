@@ -102,7 +102,7 @@ public class DataDictionaryListController extends BaseController {
 	public String delete(@RequestParam(value = "id") Long id) {
 		Result<String> result = biz.delete(id);
 		if (result.isStatus()) {
-			return deleteSuccess(NAVTABID);
+			return delete(NAVTABID);
 		}
 		return error(result.getErrMsg());
 	}

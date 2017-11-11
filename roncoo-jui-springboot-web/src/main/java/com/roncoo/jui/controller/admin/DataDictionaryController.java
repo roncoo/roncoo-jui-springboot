@@ -98,7 +98,7 @@ public class DataDictionaryController extends BaseController {
 	public String delete(@RequestParam(value = "id", defaultValue = "0") Long id, @RequestParam(value = "fieldCode", defaultValue = "") String fieldCode) {
 		Result<String> result = biz.delete(id, fieldCode);
 		if (result.isStatus()) {
-			return deleteSuccess(NAVTABID);
+			return delete(NAVTABID);
 		}
 		return error(result.getErrMsg());
 	}
