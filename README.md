@@ -32,4 +32,4 @@
 * QQ1群: 213097382 (满)
 
 ### 云服务器推荐
-[千铭云：https://www.chanmir.cn/?u=6C53A9](https://www.chanmir.cn/?u=6C53A9)
+[千铭云：https://www.chanmir.cn](https://www.chanmir.cn/?u=6C53A9)
