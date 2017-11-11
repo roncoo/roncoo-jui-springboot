@@ -1,11 +1,10 @@
 package com.roncoo.jui.common.mapper;
 
+import com.roncoo.jui.common.entity.RcDataDictionaryList;
+import com.roncoo.jui.common.entity.RcDataDictionaryListExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import com.roncoo.jui.common.entity.RcDataDictionaryList;
-import com.roncoo.jui.common.entity.RcDataDictionaryListExample;
 
 @Mapper
 public interface RcDataDictionaryListMapper {

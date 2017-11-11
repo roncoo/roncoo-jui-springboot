@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.roncoo.jui.common.mapper.RcDataDictionaryListMapper" >
-  <resultMap id="BaseResultMap" type="com.roncoo.jui.common.entity.RcDataDictionaryList" >
+<mapper namespace="com.roncoo.jui.common.mapper.SysMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.roncoo.jui.common.entity.SysMenu" >
     <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="status_id" property="statusId" jdbcType="CHAR" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-    <result column="field_code" property="fieldCode" jdbcType="VARCHAR" />
-    <result column="field_key" property="fieldKey" jdbcType="VARCHAR" />
-    <result column="field_value" property="fieldValue" jdbcType="VARCHAR" />
     <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
+    <result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />
+    <result column="target_name" property="targetName" jdbcType="VARCHAR" />
+    <result column="menu_icon" property="menuIcon" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,16 +73,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, status_id, create_time, update_time, field_code, field_key, field_value, sort, 
-    remark
+    id, gmt_create, gmt_modified, status_id, sort, parent_id, menu_name, menu_url, target_name, 
+    menu_icon, remark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryListExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.roncoo.jui.common.entity.SysMenuExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from rc_data_dictionary_list
+    from sys_menu
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -94,55 +96,61 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from rc_data_dictionary_list
+    from sys_menu
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from rc_data_dictionary_list
+    delete from sys_menu
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryListExample" >
-    delete from rc_data_dictionary_list
+  <delete id="deleteByExample" parameterType="com.roncoo.jui.common.entity.SysMenuExample" >
+    delete from sys_menu
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryList" >
-    insert into rc_data_dictionary_list (id, status_id, create_time, 
-      update_time, field_code, field_key, 
-      field_value, sort, remark
-      )
-    values (#{id,jdbcType=BIGINT}, #{statusId,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{fieldCode,jdbcType=VARCHAR}, #{fieldKey,jdbcType=VARCHAR}, 
-      #{fieldValue,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.roncoo.jui.common.entity.SysMenu" >
+    insert into sys_menu (id, gmt_create, gmt_modified, 
+      status_id, sort, parent_id, 
+      menu_name, menu_url, target_name, 
+      menu_icon, remark)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{statusId,jdbcType=CHAR}, #{sort,jdbcType=INTEGER}, #{parentId,jdbcType=BIGINT}, 
+      #{menuName,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, #{targetName,jdbcType=VARCHAR}, 
+      #{menuIcon,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryList" >
-    insert into rc_data_dictionary_list
+  <insert id="insertSelective" parameterType="com.roncoo.jui.common.entity.SysMenu" >
+    insert into sys_menu
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
       <if test="statusId != null" >
         status_id,
       </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="updateTime != null" >
-        update_time,
-      </if>
-      <if test="fieldCode != null" >
-        field_code,
-      </if>
-      <if test="fieldKey != null" >
-        field_key,
-      </if>
-      <if test="fieldValue != null" >
-        field_value,
-      </if>
       <if test="sort != null" >
         sort,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="menuName != null" >
+        menu_name,
+      </if>
+      <if test="menuUrl != null" >
+        menu_url,
+      </if>
+      <if test="targetName != null" >
+        target_name,
+      </if>
+      <if test="menuIcon != null" >
+        menu_icon,
       </if>
       <if test="remark != null" >
         remark,
@@ -152,64 +160,76 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
       <if test="statusId != null" >
         #{statusId,jdbcType=CHAR},
       </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="fieldCode != null" >
-        #{fieldCode,jdbcType=VARCHAR},
-      </if>
-      <if test="fieldKey != null" >
-        #{fieldKey,jdbcType=VARCHAR},
-      </if>
-      <if test="fieldValue != null" >
-        #{fieldValue,jdbcType=VARCHAR},
-      </if>
       <if test="sort != null" >
         #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="menuName != null" >
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUrl != null" >
+        #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetName != null" >
+        #{targetName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuIcon != null" >
+        #{menuIcon,jdbcType=VARCHAR},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryListExample" resultType="java.lang.Integer" >
-    select count(*) from rc_data_dictionary_list
+  <select id="countByExample" parameterType="com.roncoo.jui.common.entity.SysMenuExample" resultType="java.lang.Integer" >
+    select count(*) from sys_menu
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update rc_data_dictionary_list
+    update sys_menu
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.statusId != null" >
         status_id = #{record.statusId,jdbcType=CHAR},
       </if>
-      <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updateTime != null" >
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.fieldCode != null" >
-        field_code = #{record.fieldCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.fieldKey != null" >
-        field_key = #{record.fieldKey,jdbcType=VARCHAR},
-      </if>
-      <if test="record.fieldValue != null" >
-        field_value = #{record.fieldValue,jdbcType=VARCHAR},
-      </if>
       <if test="record.sort != null" >
         sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=BIGINT},
+      </if>
+      <if test="record.menuName != null" >
+        menu_name = #{record.menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuUrl != null" >
+        menu_url = #{record.menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.targetName != null" >
+        target_name = #{record.targetName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuIcon != null" >
+        menu_icon = #{record.menuIcon,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -220,43 +240,51 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update rc_data_dictionary_list
+    update sys_menu
     set id = #{record.id,jdbcType=BIGINT},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       status_id = #{record.statusId,jdbcType=CHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      field_code = #{record.fieldCode,jdbcType=VARCHAR},
-      field_key = #{record.fieldKey,jdbcType=VARCHAR},
-      field_value = #{record.fieldValue,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=INTEGER},
+      parent_id = #{record.parentId,jdbcType=BIGINT},
+      menu_name = #{record.menuName,jdbcType=VARCHAR},
+      menu_url = #{record.menuUrl,jdbcType=VARCHAR},
+      target_name = #{record.targetName,jdbcType=VARCHAR},
+      menu_icon = #{record.menuIcon,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryList" >
-    update rc_data_dictionary_list
+  <update id="updateByPrimaryKeySelective" parameterType="com.roncoo.jui.common.entity.SysMenu" >
+    update sys_menu
     <set >
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
       <if test="statusId != null" >
         status_id = #{statusId,jdbcType=CHAR},
       </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="fieldCode != null" >
-        field_code = #{fieldCode,jdbcType=VARCHAR},
-      </if>
-      <if test="fieldKey != null" >
-        field_key = #{fieldKey,jdbcType=VARCHAR},
-      </if>
-      <if test="fieldValue != null" >
-        field_value = #{fieldValue,jdbcType=VARCHAR},
-      </if>
       <if test="sort != null" >
         sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="menuName != null" >
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUrl != null" >
+        menu_url = #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetName != null" >
+        target_name = #{targetName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuIcon != null" >
+        menu_icon = #{menuIcon,jdbcType=VARCHAR},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
@@ -264,15 +292,17 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryList" >
-    update rc_data_dictionary_list
-    set status_id = #{statusId,jdbcType=CHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      field_code = #{fieldCode,jdbcType=VARCHAR},
-      field_key = #{fieldKey,jdbcType=VARCHAR},
-      field_value = #{fieldValue,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.roncoo.jui.common.entity.SysMenu" >
+    update sys_menu
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      status_id = #{statusId,jdbcType=CHAR},
       sort = #{sort,jdbcType=INTEGER},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_url = #{menuUrl,jdbcType=VARCHAR},
+      target_name = #{targetName,jdbcType=VARCHAR},
+      menu_icon = #{menuIcon,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>

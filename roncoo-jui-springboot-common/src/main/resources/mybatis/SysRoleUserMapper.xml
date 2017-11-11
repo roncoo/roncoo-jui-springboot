@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.roncoo.jui.common.mapper.RcReportMapper" >
-  <resultMap id="BaseResultMap" type="com.roncoo.jui.common.entity.RcReport" >
+<mapper namespace="com.roncoo.jui.common.mapper.SysRoleUserMapper" >
+  <resultMap id="BaseResultMap" type="com.roncoo.jui.common.entity.SysRoleUser" >
     <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="status_id" property="statusId" jdbcType="CHAR" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="sort" property="sort" jdbcType="INTEGER" />
-    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
-    <result column="user_nickname" property="userNickname" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, status_id, create_time, update_time, sort, user_email, user_nickname
+    id, gmt_create, gmt_modified, status_id, sort, role_id, user_id
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.roncoo.jui.common.entity.RcReportExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.roncoo.jui.common.entity.SysRoleUserExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from rc_report
+    from sys_role_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -91,105 +91,105 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from rc_report
+    from sys_role_user
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from rc_report
+    delete from sys_role_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.roncoo.jui.common.entity.RcReportExample" >
-    delete from rc_report
+  <delete id="deleteByExample" parameterType="com.roncoo.jui.common.entity.SysRoleUserExample" >
+    delete from sys_role_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.roncoo.jui.common.entity.RcReport" >
-    insert into rc_report (id, status_id, create_time, 
-      update_time, sort, user_email, 
-      user_nickname)
-    values (#{id,jdbcType=BIGINT}, #{statusId,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, #{userEmail,jdbcType=VARCHAR}, 
-      #{userNickname,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.roncoo.jui.common.entity.SysRoleUser" >
+    insert into sys_role_user (id, gmt_create, gmt_modified, 
+      status_id, sort, role_id, 
+      user_id)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{statusId,jdbcType=CHAR}, #{sort,jdbcType=INTEGER}, #{roleId,jdbcType=BIGINT}, 
+      #{userId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.roncoo.jui.common.entity.RcReport" >
-    insert into rc_report
+  <insert id="insertSelective" parameterType="com.roncoo.jui.common.entity.SysRoleUser" >
+    insert into sys_role_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
       <if test="statusId != null" >
         status_id,
-      </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="updateTime != null" >
-        update_time,
       </if>
       <if test="sort != null" >
         sort,
       </if>
-      <if test="userEmail != null" >
-        user_email,
+      <if test="roleId != null" >
+        role_id,
       </if>
-      <if test="userNickname != null" >
-        user_nickname,
+      <if test="userId != null" >
+        user_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
       <if test="statusId != null" >
         #{statusId,jdbcType=CHAR},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="sort != null" >
         #{sort,jdbcType=INTEGER},
       </if>
-      <if test="userEmail != null" >
-        #{userEmail,jdbcType=VARCHAR},
+      <if test="roleId != null" >
+        #{roleId,jdbcType=BIGINT},
       </if>
-      <if test="userNickname != null" >
-        #{userNickname,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.roncoo.jui.common.entity.RcReportExample" resultType="java.lang.Integer" >
-    select count(*) from rc_report
+  <select id="countByExample" parameterType="com.roncoo.jui.common.entity.SysRoleUserExample" resultType="java.lang.Integer" >
+    select count(*) from sys_role_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update rc_report
+    update sys_role_user
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.statusId != null" >
         status_id = #{record.statusId,jdbcType=CHAR},
-      </if>
-      <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updateTime != null" >
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.sort != null" >
         sort = #{record.sort,jdbcType=INTEGER},
       </if>
-      <if test="record.userEmail != null" >
-        user_email = #{record.userEmail,jdbcType=VARCHAR},
+      <if test="record.roleId != null" >
+        role_id = #{record.roleId,jdbcType=BIGINT},
       </if>
-      <if test="record.userNickname != null" >
-        user_nickname = #{record.userNickname,jdbcType=VARCHAR},
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -197,50 +197,50 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update rc_report
+    update sys_role_user
     set id = #{record.id,jdbcType=BIGINT},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       status_id = #{record.statusId,jdbcType=CHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       sort = #{record.sort,jdbcType=INTEGER},
-      user_email = #{record.userEmail,jdbcType=VARCHAR},
-      user_nickname = #{record.userNickname,jdbcType=VARCHAR}
+      role_id = #{record.roleId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.roncoo.jui.common.entity.RcReport" >
-    update rc_report
+  <update id="updateByPrimaryKeySelective" parameterType="com.roncoo.jui.common.entity.SysRoleUser" >
+    update sys_role_user
     <set >
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
       <if test="statusId != null" >
         status_id = #{statusId,jdbcType=CHAR},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="sort != null" >
         sort = #{sort,jdbcType=INTEGER},
       </if>
-      <if test="userEmail != null" >
-        user_email = #{userEmail,jdbcType=VARCHAR},
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=BIGINT},
       </if>
-      <if test="userNickname != null" >
-        user_nickname = #{userNickname,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.roncoo.jui.common.entity.RcReport" >
-    update rc_report
-    set status_id = #{statusId,jdbcType=CHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
+  <update id="updateByPrimaryKey" parameterType="com.roncoo.jui.common.entity.SysRoleUser" >
+    update sys_role_user
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      status_id = #{statusId,jdbcType=CHAR},
       sort = #{sort,jdbcType=INTEGER},
-      user_email = #{userEmail,jdbcType=VARCHAR},
-      user_nickname = #{userNickname,jdbcType=VARCHAR}
+      role_id = #{roleId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

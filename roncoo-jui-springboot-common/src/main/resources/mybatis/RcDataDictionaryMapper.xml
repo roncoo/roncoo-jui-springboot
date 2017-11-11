@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.roncoo.jui.common.mapper.RcDataDictionaryMapper" >
-  <resultMap id="BaseResultMap" type="com.roncoo.jui.common.bean.entity.RcDataDictionary" >
+  <resultMap id="BaseResultMap" type="com.roncoo.jui.common.entity.RcDataDictionary" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="status_id" property="statusId" jdbcType="CHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -72,7 +72,7 @@
   <sql id="Base_Column_List" >
     id, status_id, create_time, update_time, field_name, field_code, sort, remark
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.roncoo.jui.common.bean.entity.RcDataDictionaryExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryExample" >
     select
     <if test="distinct" >
       distinct
@@ -99,13 +99,13 @@
     delete from rc_data_dictionary
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.roncoo.jui.common.bean.entity.RcDataDictionaryExample" >
+  <delete id="deleteByExample" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryExample" >
     delete from rc_data_dictionary
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.roncoo.jui.common.bean.entity.RcDataDictionary" >
+  <insert id="insert" parameterType="com.roncoo.jui.common.entity.RcDataDictionary" >
     insert into rc_data_dictionary (id, status_id, create_time, 
       update_time, field_name, field_code, 
       sort, remark)
@@ -113,7 +113,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{fieldName,jdbcType=VARCHAR}, #{fieldCode,jdbcType=VARCHAR}, 
       #{sort,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.roncoo.jui.common.bean.entity.RcDataDictionary" >
+  <insert id="insertSelective" parameterType="com.roncoo.jui.common.entity.RcDataDictionary" >
     insert into rc_data_dictionary
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -168,7 +168,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.roncoo.jui.common.bean.entity.RcDataDictionaryExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.roncoo.jui.common.entity.RcDataDictionaryExample" resultType="java.lang.Integer" >
     select count(*) from rc_data_dictionary
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -220,7 +220,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.roncoo.jui.common.bean.entity.RcDataDictionary" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.roncoo.jui.common.entity.RcDataDictionary" >
     update rc_data_dictionary
     <set >
       <if test="statusId != null" >
@@ -247,7 +247,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.roncoo.jui.common.bean.entity.RcDataDictionary" >
+  <update id="updateByPrimaryKey" parameterType="com.roncoo.jui.common.entity.RcDataDictionary" >
     update rc_data_dictionary
     set status_id = #{statusId,jdbcType=CHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
