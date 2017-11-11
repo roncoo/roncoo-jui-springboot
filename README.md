@@ -3,7 +3,7 @@
 * 如果没有使用过Spring Boot，也是一个学习的好项目。
 * 可以快速实现一个基于Spring Boot的后台管理系统，前端是基于JUI。
 
-### 在线预览：[http://demo.roncoo.net/roncoo-jui-springboot/admin/index](http://demo.roncoo.net/roncoo-jui-springboot/admin/index)
+### 在线预览：[http://demo.roncoo.net/roncoo-jui-springboot/admin](http://demo.roncoo.net/roncoo-jui-springboot/admin)
 
 ### 视频学习：[Spring Boot教程全集](http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d)
 
