@@ -1,7 +1,7 @@
 /**
  * Copyright 2015-2016 广州市领课网络科技有限公司
  */
-package com.roncoo.jui.controller.admin;
+package com.roncoo.jui.web.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,23 +15,18 @@ import com.roncoo.jui.common.util.base.BaseController;
  * @author wujing
  */
 @Controller
-@RequestMapping(value = "admin")
 public class IndexController extends BaseController {
 
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String index(HttpSession session) {
-		if (session.getAttribute("roncoo") != null) {
-			return "admin/index";
-		}
-		return "redirect:/";
+		// 获取菜单
+
+		return "index";
 	}
 
-	/**
-	 * 进入首页
-	 */
 	@RequestMapping(value = "/index", method = RequestMethod.POST)
 	public String postIndex() {
-		return "redirect:/admin/index";
+		return "redirect:/index";
 	}
 
 }

@@ -22,6 +22,12 @@ public class Jui implements Serializable {
 	/**
 	 * @param navTabId
 	 */
+	public Jui() {
+	}
+	
+	/**
+	 * @param navTabId
+	 */
 	public Jui(int statusCode, String navTabId, String message, String callbackType) {
 		this.statusCode = statusCode;
 		this.navTabId = navTabId;

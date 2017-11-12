@@ -19,7 +19,7 @@ import org.springframework.web.util.HtmlUtils;
  * 
  * @author wujing
  */
-@WebFilter(filterName = "XSSFilter", urlPatterns = "/*")
+@WebFilter(filterName = "XSSFilter", urlPatterns = "/admin/**")
 public class XSSFilter implements Filter {
 
 	@Override

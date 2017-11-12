@@ -76,14 +76,13 @@
 <script type="text/javascript">
 	$(function() {
 		DWZ.init("dwz.frag.xml", {
-			loginUrl : "login_dialog.html",
-			loginTitle : "登录", // 弹出登录对话框
-			//loginUrl:"login.html",	// 跳到登录页面
+			//loginUrl : "${base}/timeout", loginTitle : "登录", // 弹出登录对话框
+			loginUrl:"${base}/timeout",	// 跳到登录页面
 			statusCode : {
 				ok : 200,
 				error : 300,
 				timeout : 301
-			}, //【可选】
+			}, 
 			pageInfo : {
 				pageNum : "pageNum",
 				numPerPage : "numPerPage",

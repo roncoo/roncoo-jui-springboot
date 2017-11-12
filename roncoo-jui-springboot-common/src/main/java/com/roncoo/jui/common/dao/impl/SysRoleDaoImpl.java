@@ -12,32 +12,37 @@ import com.roncoo.jui.common.util.jui.Page;
 
 @Repository
 public class SysRoleDaoImpl implements SysRoleDao {
-    @Autowired
-    private SysRoleMapper sysRoleMapper;
+	@Autowired
+	private SysRoleMapper sysRoleMapper;
 
-    public int save(SysRole record) {
-        return this.sysRoleMapper.insertSelective(record);
-    }
+	@Override
+	public int save(SysRole record) {
+		return this.sysRoleMapper.insertSelective(record);
+	}
 
-    public int deleteById(Long id) {
-        return this.sysRoleMapper.deleteByPrimaryKey(id);
-    }
+	@Override
+	public int deleteById(Long id) {
+		return this.sysRoleMapper.deleteByPrimaryKey(id);
+	}
 
-    public int updateById(SysRole record) {
-        return this.sysRoleMapper.updateByPrimaryKeySelective(record);
-    }
+	@Override
+	public int updateById(SysRole record) {
+		return this.sysRoleMapper.updateByPrimaryKeySelective(record);
+	}
 
-    public SysRole getById(Long id) {
-        return this.sysRoleMapper.selectByPrimaryKey(id);
-    }
+	@Override
+	public SysRole getById(Long id) {
+		return this.sysRoleMapper.selectByPrimaryKey(id);
+	}
 
-    public Page<SysRole> listForPage(int pageCurrent, int pageSize, SysRoleExample example) {
-        int count = this.sysRoleMapper.countByExample(example);
-        pageSize = PageUtil.checkPageSize(pageSize);
-        pageCurrent = PageUtil.checkPageCurrent(count, pageSize, pageCurrent);
-        int totalPage = PageUtil.countTotalPage(count, pageSize);
-        example.setLimitStart(PageUtil.countOffset(pageCurrent, pageSize));
-        example.setPageSize(pageSize);
-        return new Page<SysRole>(count, totalPage, pageCurrent, pageSize, this.sysRoleMapper.selectByExample(example));
-    }
+	@Override
+	public Page<SysRole> listForPage(int pageCurrent, int pageSize, SysRoleExample example) {
+		int count = this.sysRoleMapper.countByExample(example);
+		pageSize = PageUtil.checkPageSize(pageSize);
+		pageCurrent = PageUtil.checkPageCurrent(count, pageSize, pageCurrent);
+		int totalPage = PageUtil.countTotalPage(count, pageSize);
+		example.setLimitStart(PageUtil.countOffset(pageCurrent, pageSize));
+		example.setPageSize(pageSize);
+		return new Page<SysRole>(count, totalPage, pageCurrent, pageSize, this.sysRoleMapper.selectByExample(example));
+	}
 }

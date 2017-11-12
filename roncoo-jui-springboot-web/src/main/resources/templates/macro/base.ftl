@@ -2,7 +2,7 @@
 <#assign base=request.contextPath />
 
 <#macro pagerForm>
-	<input type="hidden" name="pageNum" value="${(page.currentPage)!'1'}" />
+	<input type="hidden" name="currentPage" value="${(page.currentPage)!'1'}" />
 	<input type="hidden" name="numPerPage" value="${(page.numPerPage)!'20'}" />
 	<input type="hidden" name="orderField" value="${(request.orderField)!}" />
 	<input type="hidden" name="orderDirection" value="${(request.orderDirection)!}" />

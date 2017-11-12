@@ -24,6 +24,18 @@ public final class Constants {
 
 	private Constants() {
 	}
+	
+
+	/**
+	 * 常量
+	 * 
+	 * @author wujing
+	 */
+	public interface Session {
+		public final static String USER = "user";
+		public final static String MENU = "menu";
+	}
+
 
 	/**
 	 * 常量

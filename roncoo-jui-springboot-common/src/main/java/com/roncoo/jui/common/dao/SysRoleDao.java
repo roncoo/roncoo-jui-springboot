@@ -5,13 +5,13 @@ import com.roncoo.jui.common.entity.SysRoleExample;
 import com.roncoo.jui.common.util.jui.Page;
 
 public interface SysRoleDao {
-    int save(SysRole record);
+	int save(SysRole record);
 
-    int deleteById(Long id);
+	int deleteById(Long id);
 
-    int updateById(SysRole record);
+	int updateById(SysRole record);
 
-    SysRole getById(Long id);
+	SysRole getById(Long id);
 
-    Page<SysRole> listForPage(int pageCurrent, int pageSize, SysRoleExample example);
+	Page<SysRole> listForPage(int pageCurrent, int pageSize, SysRoleExample example);
 }

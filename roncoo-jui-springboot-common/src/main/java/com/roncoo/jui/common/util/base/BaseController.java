@@ -15,6 +15,8 @@
  */
 package com.roncoo.jui.common.util.base;
 
+import java.text.MessageFormat;
+
 import com.roncoo.jui.common.util.JSONUtil;
 import com.roncoo.jui.common.util.jui.Jui;
 
@@ -38,10 +40,14 @@ public class BaseController extends Base {
 	public static final String DELETE = "delete";
 	public static final String PAGE = "page";
 
+	public static String redirect(String format, Object... arguments) {
+		return new StringBuffer("redirect:").append(MessageFormat.format(format, arguments)).toString();
+	}
+
 	public static String success(String navTabId) {
 		return JSONUtil.toJSONString(new Jui(200, navTabId, "操作成功", "closeCurrent"));
 	}
-	
+
 	public static String delete(String navTabId) {
 		return JSONUtil.toJSONString(new Jui(200, navTabId, "操作成功", ""));
 	}

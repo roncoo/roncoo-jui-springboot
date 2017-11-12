@@ -14,4 +14,8 @@ public interface SysUserDao {
     SysUser getById(Long id);
 
     Page<SysUser> listForPage(int pageCurrent, int pageSize, SysUserExample example);
+
+	SysUser getByUserPhone(String userPhone);
+	
+	SysUser getByUserEmail(String userEmail);
 }
