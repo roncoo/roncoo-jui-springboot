@@ -166,39 +166,7 @@
 				</ul>
 				<div class="navTab-panel tabsPageContent layoutBox">
 					<div class="page unitBox">
-						<div class="accountInfo">
-							<p>
-                                <span>龙果开源- roncoo-jui-springboot</span>
-                            </p>
-							<p>
-								<span>OSChina地址：</span><a href="http://git.oschina.net/roncoocom/roncoo-jui-springboot" target="_blank">http://git.oschina.net/roncoocom/roncoo-jui-springboot</a>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span>GitHub地址：</span><a href="https://github.com/roncoo/roncoo-jui-springboot" target="_blank">https://github.com/roncoo/roncoo-jui-springboot</a>
-							</p>
-						</div>
-
-						<div class="pageFormContent" layoutH="80">
-							<h2>项目介绍：</h2>
-							<div class="unit">后台框架：Spring Boot v1.5.2</div>
-							<div class="unit">前端框架：JUI v1.5.2</div>
-							<div class="unit">1. 后台框架基于Spring Boot，前台框架为JUI</div>
-							<div class="unit">2. 实现了简单是增删改查，主要是运用Spring Boot进行实战</div>
-							<div class="unit">3. 功能会继续添加，欢迎大家Star和Fork</div>
-							<div class="divider"></div>
-							<h2>更新日志：</h2>
-							<div class="unit">2017-05-17 更新mybatis-spring-boot-starter版本，集成roncoo-spring-boot-starter-druid</div>
-							<div class="unit">2017-04-08 添加应用发布操作脚本，添加报表功能</div>
-							<div class="unit">2017-03-29 更新spring依赖版本到Brussels-SR1</div>
-							<div class="unit">2017-01-08 修改sonar检测出来的若干个bug。</div>
-							<div class="unit">2016-12-19 修改默认登录模式，增加防止XSS攻击的过滤器。</div>
-							<div class="unit">2016-12-08 增加定时任务，异步调用功能。</div>
-							<div class="unit">2016-11-28 项目初始化，简单的增删改查。</div>
-							<div class="divider"></div>
-							<span>龙果学院 - Spring Boot全集 <a href="http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d" target="_blank">http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d</a></span>
-                            
-						</div>
-						
-						 
+						<#include "content.ftl" />
 					</div>
 				</div>
 			</div>
@@ -206,9 +174,9 @@
 	</div>
 
 	<div id="footer">
-		Copyright &copy; 2016
-		<a href="http://www.roncoo.com" target="_blank">龙果学院</a>
-		粤ICP备16009964号
+		Copyright &copy; 2015- <span id="year"></span>
+		<a href="http://www.roncoo.com" target="_blank">龙果学院</a> 粤ICP备16009964号
+		<script language="javascript">var now=new Date();document.getElementById("year").innerHTML = now.getFullYear();</script>
 	</div>
 </body>
 </html>

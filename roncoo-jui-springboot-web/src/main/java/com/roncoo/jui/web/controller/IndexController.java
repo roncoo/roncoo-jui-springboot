@@ -22,7 +22,6 @@ import com.roncoo.jui.web.service.SysMenuRoleService;
 import com.roncoo.jui.web.service.SysMenuService;
 import com.roncoo.jui.web.service.SysRoleUserService;
 
-
 /**
  * @author wujing
  */
@@ -53,11 +52,9 @@ public class IndexController extends BaseController {
 
 		SecurityUtils.getSubject().getSession().setAttribute(Constants.Session.MENU, menuVOList);
 		modelMap.put("menuVOList", menuVOList);
-	}
 
-	@RequestMapping("/context")
-	public void context(ModelMap modelMap) {
 		modelMap.put("javaVersion", System.getProperty("java.version"));
 		modelMap.put("osName", System.getProperty("os.name"));
 	}
+
 }

@@ -32,9 +32,9 @@
 [千铭云：https://www.chanmir.cn](https://www.chanmir.cn/?u=6C53A9)
 
 ### 项目截图
-![菜单管理](support/images/menu.png)
-![角色管理](support/images/role.png)
-![用户管理](support/images/user.png)
-![main](support/images/main.png)
+![菜单管理](/support/images/menu.png)
+![角色管理](/support/images/role.png)
+![用户管理](/support/images/user.png)
+![main](/support/images/main.png)
 
 
