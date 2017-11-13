@@ -6,11 +6,14 @@ package com.roncoo.jui.web.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.roncoo.jui.common.entity.SysUser;
 import com.roncoo.jui.common.util.Constants;
@@ -36,6 +39,11 @@ public class IndexController extends BaseController {
 
 	@Autowired
 	private SysRoleUserService sysRoleUserService;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index(HttpSession session) {
+		return redirect("/index");
+	}
 
 	@RequestMapping("/index")
 	public void index(ModelMap modelMap) {
