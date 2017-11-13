@@ -29,7 +29,7 @@ public class SysMenuController extends BaseController {
 	private SysMenuService service;
 
 	@RequestMapping("/list")
-	public void list(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(defaultValue = "20") int pageSize, @ModelAttribute SysMenuQO qo, ModelMap modelMap) {
+	public void list(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, @ModelAttribute SysMenuQO qo, ModelMap modelMap) {
 		modelMap.put("page", service.listForPage(pageCurrent, pageSize, qo));
 		modelMap.put("pageCurrent", pageCurrent);
 		modelMap.put("pageSize", pageSize);

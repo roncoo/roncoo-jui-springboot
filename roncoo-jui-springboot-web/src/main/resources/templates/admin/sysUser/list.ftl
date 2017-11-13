@@ -64,7 +64,7 @@
                     </#list>
                     </td>
                     <td>
-                        <a title="查看" target="dialog" href="${base}/admin/sysRoleUser/set?userId=${bean.id}">设置角色 </a>
+                        <a title="设置角色" target="dialog" href="${base}/admin/sysRoleUser/set?userId=${bean.id}">设置角色 </a>
                         <a title="查看" target="dialog" href="${base}/admin/sysUser/view?id=${bean.id}" class="btnView">查看 </a>
                         <a title="编辑" target="dialog" href="${base}/admin/sysUser/edit?id=${bean.id}" class="btnEdit">修改 </a>
                         <a title="确定要删除吗？" target="ajaxTodo" href="${base}/admin/sysUser/delete?id=${bean.id}" class="btnDel">删除</a>

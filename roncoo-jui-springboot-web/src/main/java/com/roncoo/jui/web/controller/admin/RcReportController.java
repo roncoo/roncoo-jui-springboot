@@ -1,19 +1,23 @@
 package com.roncoo.jui.web.controller.admin;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.roncoo.jui.web.service.RcReportService;
-import com.roncoo.jui.web.bean.qo.RcReportQO;
 import com.roncoo.jui.common.util.base.BaseController;
+import com.roncoo.jui.web.bean.qo.RcReportQO;
+import com.roncoo.jui.web.service.RcReportService;
 
 /**
- * 报表 
+ * 报表
  *
  * @author wujing
  * @since 2017-11-11
@@ -22,59 +26,40 @@ import com.roncoo.jui.common.util.base.BaseController;
 @RequestMapping("/admin/rcReport")
 public class RcReportController extends BaseController {
 
-	private final static String TARGETID = "admin-rcReport";
+	// private final static String TARGETID = "admin-rcReport";
 
 	@Autowired
 	private RcReportService service;
-	
-	@RequestMapping("/list")
-	public void list(@RequestParam(value = "pageCurrent", defaultValue = "1") int pageCurrent, @RequestParam(value = "pageSize", defaultValue = "20") int pageSize, @ModelAttribute RcReportQO qo, ModelMap modelMap){
-		modelMap.put("page", service.listForPage(pageCurrent, pageSize, qo));
-		modelMap.put("pageCurrent", pageCurrent);
-		modelMap.put("pageSize", pageSize);
+
+	/**
+	 * 分页查看
+	 * 
+	 * @param pageCurrent
+	 * @param pageSize
+	 * @param modelMap
+	 */
+	/**
+	 * 分页查看
+	 * 
+	 * @param pageCurrent
+	 * @param pageSize
+	 * @param modelMap
+	 */
+	@RequestMapping(value = LIST)
+	public void list(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, @RequestParam(value = "orderField", required = false) String orderField, @RequestParam(value = "orderDirection", required = false) String orderDirection, @ModelAttribute RcReportQO qo, ModelMap modelMap) {
+		modelMap.put("page", service.listForPage(pageCurrent, pageSize, orderField, orderDirection, qo));
 		modelMap.put("bean", qo);
 	}
-	
-	@RequestMapping("/add")
-	public void add(){
-	
+
+	/**
+	 * 导出
+	 * 
+	 * @param id
+	 * @param modelMap
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "download", method = RequestMethod.GET)
+	public void download(HttpServletResponse response) throws IOException {
+		service.exportExcel(response);
 	}
-	
-	@ResponseBody
-	@RequestMapping("/save")
-	public String save(@ModelAttribute RcReportQO qo){
-		if (service.save(qo) > 0) {
-			return success(TARGETID);
-		}
-		return error("添加失败");
-	}
-	
-	@ResponseBody
-	@RequestMapping("/delete")
-	public String delete(@RequestParam(value = "id") Long id){
-		if (service.deleteById(id) > 0) {
-			return delete(TARGETID);
-		}
-		return error("删除失败");
-	}
-	
-	@RequestMapping("/edit")
-	public void edit(@RequestParam(value = "id") Long id, ModelMap modelMap){
-		modelMap.put("bean", service.getById(id));
-	}
-	
-	@ResponseBody
-	@RequestMapping("/update")
-	public String update(@ModelAttribute RcReportQO qo){
-		if (service.updateById(qo) > 0) {
-			return success(TARGETID);
-		}
-		return error("修改失败");
-	}
-	
-	@RequestMapping("/view")
-	public void view(@RequestParam(value = "id") Long id, ModelMap modelMap){
-		modelMap.put("bean", service.getById(id));
-	}
-	
 }

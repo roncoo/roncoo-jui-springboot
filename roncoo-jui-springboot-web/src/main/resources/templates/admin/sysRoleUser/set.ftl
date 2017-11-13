@@ -4,7 +4,7 @@
 </form>
 
 <div class="pageHeader">
-    <form rel="pagerForm" method="post" action="${base}/admin/sysRoleUser/set?userId=${bean.userId}" onsubmit="return dwzSearch(this, 'dialog');">
+    <form rel="pagerForm" method="post" action="${base}/admin/sysRoleUser/set?userId=${bean.userId}" onsubmit="return dialogSearch(this);">
     <div class="searchBar">
         <ul class="searchContent">
             <li>
@@ -52,5 +52,5 @@
             </#if>
         </tbody>
     </table>
-   <@pages />
+   <@pagesDialog />
 </div>

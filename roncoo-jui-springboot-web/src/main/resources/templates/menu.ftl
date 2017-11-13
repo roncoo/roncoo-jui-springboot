@@ -42,7 +42,7 @@
 						<a>系统管理</a>
 						<ul>
 							<li>
-								<a href="${base}/admin/dataDictionary/list" target="navTab" rel="dataDictionary">数据字典管理</a>
+								<a href="${base}/admin/rcDataDictionary/list" target="navTab" rel="dataDictionary">数据字典管理</a>
 							</li>
 						</ul>
 					</li>
@@ -59,7 +59,7 @@
                     <li>
                         <a>普通报表</a>
                         <ul>
-                            <li><a href="${base}/admin/report/list" target="navTab" rel="report">报表统计</a></li>
+                            <li><a href="${base}/admin/rcReport/list" target="navTab" rel="report">报表统计</a></li>
                         </ul>
                     </li>
                 </ul>

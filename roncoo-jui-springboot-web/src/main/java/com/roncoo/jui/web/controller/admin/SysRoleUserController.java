@@ -41,7 +41,7 @@ public class SysRoleUserController extends BaseController {
 	 * @param modelMap
 	 */
 	@RequestMapping(value = "/set", method = RequestMethod.GET)
-	public void setGet(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(defaultValue = "20") int pageSize, SysRoleUserQO qo, ModelMap modelMap) {
+	public void setGet(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, SysRoleUserQO qo, ModelMap modelMap) {
 		List<SysRoleUserVO> list = service.listByUserId(qo.getUserId());
 		modelMap.put("bean", qo);
 		modelMap.put("roleUserList", list);

@@ -1,49 +1,29 @@
-<#assign base=request.contextPath />
+<#include "/macro/base.ftl" />
 <div class="pageContent">
-	<form action="${base}/admin/rcDataDictionaryList/save" data-toggle="validate" method="post">
-        <div class="pageFormContent" layoutH="58">
-    		<p>
-                <label>主键：</label>
-                <input type="text" name="id" value="" placeholder="主键" size="20">
-            </p>
-    		<p>
-                <label>状态：</label>
-                <input type="text" name="statusId" value="" placeholder="状态" size="20">
-            </p>
-    		<p>
-                <label>创建时间：</label>
-                <input type="text" name="createTime" value="" placeholder="创建时间" size="20">
-            </p>
-    		<p>
-                <label>修改时间：</label>
-                <input type="text" name="updateTime" value="" placeholder="修改时间" size="20">
-            </p>
-    		<p>
-                <label>字段CODE：</label>
-                <input type="text" name="fieldCode" value="" placeholder="字段CODE" size="20">
-            </p>
-    		<p>
-                <label>字段KEY：</label>
-                <input type="text" name="fieldKey" value="" placeholder="字段KEY" size="20">
-            </p>
-    		<p>
-                <label>字段VALUE：</label>
-                <input type="text" name="fieldValue" value="" placeholder="字段VALUE" size="20">
-            </p>
-    		<p>
-                <label>字段排序：</label>
-                <input type="text" name="sort" value="" placeholder="字段排序" size="20">
-            </p>
-    		<p>
-                <label>备注：</label>
-                <input type="text" name="remark" value="" placeholder="备注" size="20">
-            </p>
-        </div>
-        <div class="formBar">
-            <ul>
-                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
-                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
-            </ul>
-        </div>
+	<form method="post" action="${base}/admin/dataDictionaryList/save" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+		<div class="pageFormContent" layoutH="58">
+			<p>
+				<label>CODE值：</label>
+				<input name="fieldCode" readonly="readonly" type="text" size="20" value="${fieldCode!}" />
+			</p>
+			<p>
+				<label>字段KEY：</label>
+				<input name="fieldKey" class="required" type="text" size="20" value="" alt="请输入字段KEY"/>
+			</p>
+			<p>
+				<label>字段VALUE：</label>
+				<input name="fieldValue" class="required" type="text" size="20" value="" alt="请输入字段VALUE"/>
+			</p>
+			<p>
+				<label>备注：</label>
+				<textarea name="remark" cols="20" rows="2"></textarea>
+			</p>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
 	</form>
 </div>

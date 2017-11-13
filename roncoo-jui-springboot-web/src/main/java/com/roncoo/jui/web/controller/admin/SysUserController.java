@@ -30,7 +30,7 @@ public class SysUserController extends BaseController {
 	private SysUserService service;
 	
 	@RequestMapping("/list")
-	public void list(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(defaultValue = "20") int pageSize, @ModelAttribute SysUserQO qo, ModelMap modelMap){
+	public void list(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, @ModelAttribute SysUserQO qo, ModelMap modelMap){
 		modelMap.put("page", service.listForPage(pageCurrent, pageSize, qo));
 		modelMap.put("pageCurrent", pageCurrent);
 		modelMap.put("pageSize", pageSize);
