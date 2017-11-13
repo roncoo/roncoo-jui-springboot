@@ -3,6 +3,12 @@
 * 如果没有使用过Spring Boot，也是一个学习的好项目。
 * 可以快速实现一个基于Spring Boot的后台管理系统，前端是基于JUI。
 
+### 项目截图
+![菜单管理](/support/images/menu.png)
+![角色管理](/support/images/role.png)
+![用户管理](/support/images/user.png)
+![main](/support/images/main.png)
+
 ### 在线预览：[http://demo.roncoo.net/roncoo-jui-springboot/login](http://demo.roncoo.net/roncoo-jui-springboot/login)
 
 ### 视频学习：[Spring Boot教程全集](http://www.roncoo.com/course/view/c99516ea604d4053908c1768d6deee3d)
@@ -30,11 +36,3 @@
 
 ### 云服务器推荐
 [千铭云：https://www.chanmir.cn](https://www.chanmir.cn/?u=6C53A9)
-
-### 项目截图
-![菜单管理](/support/images/menu.png)
-![角色管理](/support/images/role.png)
-![用户管理](/support/images/user.png)
-![main](/support/images/main.png)
-
-
