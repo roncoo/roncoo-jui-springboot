@@ -31,7 +31,7 @@
     <#if children?? && children?size gt 0>
         <ul>
         <#list children as bean>
-            <li><a tname="ids" tvalue="${bean.id}" <#if bean.isShow == 1>checked="true"</#if>>${bean.menuName}</a>
+            <li><a tname="ids" tvalue="${bean.id}" <#if bean.isShow == 1>checked</#if>>${bean.menuName}</a>
                 <@menuListForRole children=bean.list/>
             </li>
         </#list>

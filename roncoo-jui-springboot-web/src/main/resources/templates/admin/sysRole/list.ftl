@@ -25,9 +25,11 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
+            <@shiro.hasPermission name="/admin/sysRole/add">
             <li class="line">line</li>
             <li><a class="add" href="${base}/admin/sysRole/add" target="dialog"><span>添加</span></a></li>
             <li class="line">line</li>
+            </@shiro.hasPermission>
         </ul>
     </div>
     <div id="w_list_print">
@@ -52,12 +54,19 @@
                     </#list>
                     </td>
                     <td>
-                        <a title="查看" target="dialog" href="${base}/admin/sysMenuRole/set?roleId=${bean.id}" class="btn">【设置菜单】 </a>
-                    
+                        <@shiro.hasPermission name="/admin/sysRole/view">
                         <a title="查看" target="dialog" href="${base}/admin/sysRole/view?id=${bean.id}" class="btnView">查看 </a>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysRole/edit">
                         <a title="编辑" target="dialog" href="${base}/admin/sysRole/edit?id=${bean.id}" class="btnEdit">修改 </a>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysRole/delete">
                         <a title="确定要删除吗？" target="ajaxTodo" href="${base}/admin/sysRole/delete?id=${bean.id}" class="btnDel">删除</a>
-                    </td>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysMenuRole/set">
+                        <a title="查看" target="dialog" href="${base}/admin/sysMenuRole/set?roleId=${bean.id}" class="btn">【设置菜单】 </a>
+                        </@shiro.hasPermission>
+                     </td>
                 </tr>
                 </#list>
                 </#if>

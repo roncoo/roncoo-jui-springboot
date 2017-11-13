@@ -11,59 +11,28 @@
 			<h2>主菜单</h2>
 			<div>收缩</div>
 		</div>
-
 		<div class="accordion" fillSpace="sidebar">
-		    <div class="accordionHeader">
+    		<#list menuVOList as menu>
+            <div class="accordionHeader">
                 <h2>
-                    <span>Folder</span>系统管理
+                    <span>Folder</span> ${menu.menuName}
                 </h2>
             </div>
             <div class="accordionContent">
                 <ul class="tree treeFolder">
+                   <#list menu.list as me>
                     <li>
-                        <a>权限管理</a>
+                        <a>${me.menuName}</a>
                         <ul>
-                            <li><a href="${base}/admin/sysUser/list" target="navTab" rel="admin-sysUser">用户管理</a></li>
-                            <li><a href="${base}/admin/sysRole/list" target="navTab" rel="admin-sysRole">角色管理</a></li>
-                            <li><a href="${base}/admin/sysMenu/list" target="navTab" rel="admin-sysMenu">菜单管理</a></li>
+                            <#list me.list as m>
+                                <li><a href="${base}/${m.menuUrl}" target="navTab" rel="${m.targetName}">${m.menuName }</a></li>
+                            </#list>
                         </ul>
                     </li>
+                   </#list>
                 </ul>
             </div>
-            
-			<div class="accordionHeader">
-				<h2>
-					<span>Folder</span>管理系统
-				</h2>
-			</div>
-			<div class="accordionContent">
-				<ul class="tree treeFolder">
-					<li>
-						<a>系统管理</a>
-						<ul>
-							<li>
-								<a href="${base}/admin/rcDataDictionary/list" target="navTab" rel="dataDictionary">数据字典管理</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			
-			<div class="accordionHeader">
-                <h2>
-                    <span>Folder</span>报表管理
-                </h2>
-            </div>
-            <div class="accordionContent">
-                <ul class="tree treeFolder">
-                    <li>
-                        <a>普通报表</a>
-                        <ul>
-                            <li><a href="${base}/admin/rcReport/list" target="navTab" rel="report">报表统计</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            </#list>
 		</div>
 	</div>
 </div>

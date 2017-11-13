@@ -25,7 +25,7 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a title="确定要添加选中的角色？" target="selectedTodo" rel="ids" href="${base}/admin/sysRoleUser/set?userId=${bean.userId!}" class="add"><span>设置角色</span></a></li>
+            <li><a title="确定要添加选中的角色？" target="selectedTodo" targetType="dialog" rel="ids" href="${base}/admin/sysRoleUser/setRole?userId=${bean.userId!}" class="add"><span>设置角色</span></a></li>
         </ul>
     </div>
     <table class="table" layoutH="138" targetType="dialog"  width="100%">

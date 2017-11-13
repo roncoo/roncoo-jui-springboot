@@ -1,6 +1,6 @@
 <#include "/macro/base.ftl" />
 <div class="pageContent">
-	<form method="post" action="${base}/admin/dataDictionary/update" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+	<form method="post" action="${base}/admin/rcDataDictionary/update" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
 		<div class="pageFormContent" layoutH="58">
 			<input name="id" value="${bean.id!}" type="hidden"/>
 			<p>

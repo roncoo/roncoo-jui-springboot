@@ -17,7 +17,7 @@
             </p>
     		<p>
                 <label>菜单图标：</label>
-                <input type="text" name="menuIcon" value="${bean.menuIcon}" alt="菜单图标" size="20" class="required"/>
+                <input type="text" name="menuIcon" value="${bean.menuIcon}" alt="菜单图标" size="20"/>
             </p>
             <p>
                 <label>排序：</label>

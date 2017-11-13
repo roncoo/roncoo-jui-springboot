@@ -21,7 +21,7 @@ import com.roncoo.jui.web.service.SysMenuService;
  * @since 2017-10-20
  */
 @Controller
-@RequestMapping("/admin/sysMenuRole")
+@RequestMapping(value = "/admin/sysMenuRole")
 public class SysMenuRoleController extends BaseController {
 
 	private final static String TARGETID = "admin-sysMenuRole";
@@ -53,9 +53,10 @@ public class SysMenuRoleController extends BaseController {
 	 * @param id
 	 * @param modelMap
 	 */
-	@RequestMapping(value = "/set", method = RequestMethod.POST)
+	@RequestMapping(value = "/setMenu", method = RequestMethod.POST)
 	@ResponseBody
 	public String setPost(Long roleId, String ids, ModelMap modelMap) {
+		System.out.println(ids);
 		service.save(roleId, ids);
 		return success(TARGETID);
 	}

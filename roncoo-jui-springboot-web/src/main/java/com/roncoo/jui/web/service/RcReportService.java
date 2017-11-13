@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import com.roncoo.jui.common.dao.RcReportDao;
 import com.roncoo.jui.common.entity.RcReport;
@@ -32,17 +31,10 @@ public class RcReportService {
 	@Autowired
 	private RcReportDao dao;
 
-	public Page<RcReportVO> listForPage(int pageCurrent, int pageSize, String orderField, String orderDirection, RcReportQO qo) {
+	public Page<RcReportVO> listForPage(int pageCurrent, int pageSize, RcReportQO qo) {
 		RcReportExample example = new RcReportExample();
 		Criteria c = example.createCriteria();
-
-		// 字段排序
-		StringBuilder orderByClause = new StringBuilder();
-		if (StringUtils.hasText(orderField)) {
-			orderByClause.append(orderField).append(" ").append(orderDirection).append(", ");
-		}
-		example.setOrderByClause(orderByClause.append(" id desc ").toString());
-		
+		example.setOrderByClause(" id desc ");
 		Page<RcReport> page = dao.listForPage(pageCurrent, pageSize, example);
 		return PageUtil.transform(page, RcReportVO.class);
 	}

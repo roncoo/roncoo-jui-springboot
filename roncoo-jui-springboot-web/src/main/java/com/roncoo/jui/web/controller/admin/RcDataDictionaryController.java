@@ -13,68 +13,68 @@ import com.roncoo.jui.web.bean.qo.RcDataDictionaryQO;
 import com.roncoo.jui.web.service.RcDataDictionaryService;
 
 /**
- * 数据字典 
+ * 数据字典
  *
  * @author wujing
  * @since 2017-11-11
  */
 @Controller
-@RequestMapping("/admin/rcDataDictionary")
+@RequestMapping(value = "/admin/rcDataDictionary")
 public class RcDataDictionaryController extends BaseController {
 
 	private final static String TARGETID = "admin-rcDataDictionary";
 
 	@Autowired
 	private RcDataDictionaryService service;
-	
-	@RequestMapping("/list")
-	public void list(@RequestParam(value = "pageCurrent", defaultValue = "1") int pageCurrent, @RequestParam(value = "pageSize", defaultValue = "20") int pageSize, @ModelAttribute RcDataDictionaryQO qo, ModelMap modelMap){
-		modelMap.put("page", service.listForPage(pageCurrent, pageSize, qo));
+
+	@RequestMapping(value = "/list")
+	public void list(@RequestParam(value = "pageCurrent", defaultValue = "1") int pageCurrent, @RequestParam(value = "pageSize", defaultValue = "20") int pageSize, @RequestParam(value = "orderField", required = false) String orderField, @RequestParam(value = "orderDirection", required = false) String orderDirection, @ModelAttribute RcDataDictionaryQO qo, ModelMap modelMap) {
+		modelMap.put("page", service.listForPage(pageCurrent, pageSize, orderField, orderDirection, qo));
 		modelMap.put("pageCurrent", pageCurrent);
 		modelMap.put("pageSize", pageSize);
 		modelMap.put("bean", qo);
 	}
-	
-	@RequestMapping("/add")
-	public void add(){
-	
+
+	@RequestMapping(value = "/add")
+	public void add() {
+
 	}
-	
+
 	@ResponseBody
-	@RequestMapping("/save")
-	public String save(@ModelAttribute RcDataDictionaryQO qo){
+	@RequestMapping(value = "/save")
+	public String save(@ModelAttribute RcDataDictionaryQO qo) {
 		if (service.save(qo) > 0) {
 			return success(TARGETID);
 		}
 		return error("添加失败");
 	}
-	
+
 	@ResponseBody
-	@RequestMapping("/delete")
-	public String delete(@RequestParam(value = "id") Long id){
+	@RequestMapping(value = "/delete")
+	public String delete(@RequestParam(value = "id") Long id) {
 		if (service.deleteById(id) > 0) {
 			return delete(TARGETID);
 		}
 		return error("删除失败");
 	}
-	
-	@RequestMapping("/edit")
-	public void edit(@RequestParam(value = "id") Long id, ModelMap modelMap){
+
+	@RequestMapping(value = "/edit")
+	public void edit(@RequestParam(value = "id") Long id, ModelMap modelMap) {
 		modelMap.put("bean", service.getById(id));
 	}
-	
+
 	@ResponseBody
-	@RequestMapping("/update")
-	public String update(@ModelAttribute RcDataDictionaryQO qo){
+	@RequestMapping(value = "/update")
+	public String update(@ModelAttribute RcDataDictionaryQO qo) {
 		if (service.updateById(qo) > 0) {
 			return success(TARGETID);
 		}
 		return error("修改失败");
 	}
-	
-	@RequestMapping("/view")
-	public void view(@RequestParam(value = "id") Long id, ModelMap modelMap){
+
+	@RequestMapping(value = "/view")
+	public void view(@RequestParam(value = "id") Long id, ModelMap modelMap) {
 		modelMap.put("bean", service.getById(id));
 	}
-	
+
 }

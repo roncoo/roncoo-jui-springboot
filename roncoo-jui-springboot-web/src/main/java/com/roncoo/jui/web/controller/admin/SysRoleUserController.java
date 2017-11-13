@@ -24,7 +24,7 @@ import com.roncoo.jui.web.service.SysRoleUserService;
  * @since 2017-10-20
  */
 @Controller
-@RequestMapping("/admin/sysRoleUser")
+@RequestMapping(value = "/admin/sysRoleUser", method = RequestMethod.POST)
 public class SysRoleUserController extends BaseController {
 
 	private final static String TARGETID = "admin-sysRoleUser";
@@ -41,7 +41,7 @@ public class SysRoleUserController extends BaseController {
 	 * @param modelMap
 	 */
 	@RequestMapping(value = "/set", method = RequestMethod.GET)
-	public void setGet(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, SysRoleUserQO qo, ModelMap modelMap) {
+	public void set(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, SysRoleUserQO qo, ModelMap modelMap) {
 		List<SysRoleUserVO> list = service.listByUserId(qo.getUserId());
 		modelMap.put("bean", qo);
 		modelMap.put("roleUserList", list);
@@ -55,7 +55,7 @@ public class SysRoleUserController extends BaseController {
 	 * @param id
 	 * @param modelMap
 	 */
-	@RequestMapping(value = "/set", method = RequestMethod.POST)
+	@RequestMapping(value = "/setRole", method = RequestMethod.GET)
 	@ResponseBody
 	public String setPost(Long userId, String ids, ModelMap modelMap) {
 		service.save(userId, ids);

@@ -67,9 +67,10 @@ class ShiroCustomRealm extends ShiroRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken arg0) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) arg0;
-		String roncooNo = token.getUsername();
+		// String roncooNo = token.getUsername();
 		// String password = token.getPassword().toString();
-		SecurityUtils.getSubject().getSession().setAttribute(Constants.Session.USER, roncooNo);
+		
+		SecurityUtils.getSubject().getSession().setAttribute(Constants.Session.USER, sysUserDao.getByUserPhone("188*********"));
 		return new SimpleAuthenticationInfo(token, token.getPassword(), getName());
 	}
 

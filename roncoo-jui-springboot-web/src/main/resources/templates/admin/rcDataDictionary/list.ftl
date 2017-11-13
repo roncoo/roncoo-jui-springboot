@@ -1,11 +1,11 @@
 <#include "/macro/base.ftl" />
 
-<form id="pagerForm" method="post" action="${base}/admin/dataDictionary/list">
+<form id="pagerForm" method="post" action="${base}/admin/rcDataDictionary/list">
 	<@pagerForm />
 </form>
 
 <div class="pageHeader">
-	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="${base}/admin/dataDictionary/list" method="post">
+	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="${base}/admin/rcDataDictionary/list" method="post">
 		<div class="searchBar">
 			<ul class="searchContent">
 				<li>
@@ -26,13 +26,19 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
+		    <@shiro.hasPermission name="/admin/rcDataDictionary/add">
 			<li class="line">line</li>
-			<li><a class="add" href="${base}/admin/dataDictionary/add" target="dialog"><span>添加</span></a></li>
+			<li><a class="add" href="${base}/admin/rcDataDictionary/add" target="dialog"><span>添加</span></a></li>
 			<li class="line">line</li>
-			<li><a class="delete" href="${base}/admin/dataDictionary/delete?id={sid}" target="ajaxTodo" title="确定要删除吗？" warn="请选中要删除的数据"><span>删除</span></a></li>
+			</@shiro.hasPermission>
+			<@shiro.hasPermission name="/admin/rcDataDictionary/delete">
+			<li><a class="delete" href="${base}/admin/rcDataDictionary/delete?id={sid}" target="ajaxTodo" title="确定要删除吗？" warn="请选中要删除的数据"><span>删除</span></a></li>
 			<li class="line">line</li>
-			<li><a class="edit" href="${base}/admin/dataDictionary/edit?id={sid}" target="dialog" warn="请选中要修改的数据"><span>修改</span></a></li>
+			</@shiro.hasPermission>
+			<@shiro.hasPermission name="/admin/rcDataDictionary/edit">
+			<li><a class="edit" href="${base}/admin/rcDataDictionary/edit?id={sid}" target="dialog" warn="请选中要修改的数据"><span>修改</span></a></li>
 			<li class="line">line</li>
+			</@shiro.hasPermission>
 		</ul>
 	</div>
 
@@ -64,9 +70,15 @@
 							<td>${bean.remark!}</td>
 							<td>${bean.updateTime?string('yyyy-MM-dd HH:mm:ss')}</td>
 							<td>
-								<a title="确定要删除吗？" target="ajaxTodo" href="${base}/admin/dataDictionary/delete?id=${bean.id}&fieldCode=${bean.fieldCode}" class="btnDel">删除</a>
-								<a title="${bean.fieldName}-编辑" target="dialog" href="${base}/admin/dataDictionary/edit?id=${bean.id}" class="btnEdit">编辑</a>
-								<a title="${bean.fieldName}-查看" target="navTab" href="${base}/admin/dataDictionaryList/list?fieldCode=${bean.fieldCode}" class="btnView" rel="dataDictionaryList">查看</a>
+							    <@shiro.hasPermission name="/admin/rcDataDictionary/delete">
+								<a title="确定要删除吗？" target="ajaxTodo" href="${base}/admin/rcDataDictionary/delete?id=${bean.id}&fieldCode=${bean.fieldCode}" class="btnDel">删除</a>
+								</@shiro.hasPermission>
+                                <@shiro.hasPermission name="/admin/rcDataDictionary/edit">
+                                <a title="${bean.fieldName}-编辑" target="dialog" href="${base}/admin/rcDataDictionary/edit?id=${bean.id}" class="btnEdit">编辑</a>
+								</@shiro.hasPermission>
+                                <@shiro.hasPermission name="/admin/rcDataDictionary/list">
+                                <a title="${bean.fieldName}-查看" target="navTab" href="${base}/admin/rcDataDictionaryList/list?fieldCode=${bean.fieldCode}" class="btnView" rel="rcDataDictionaryList">查看</a>
+								</@shiro.hasPermission>
 							</td>
 						</tr>
 					</#list>

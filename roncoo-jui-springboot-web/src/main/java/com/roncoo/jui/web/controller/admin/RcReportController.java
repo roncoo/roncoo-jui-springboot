@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.roncoo.jui.common.util.base.BaseController;
@@ -23,7 +22,7 @@ import com.roncoo.jui.web.service.RcReportService;
  * @since 2017-11-11
  */
 @Controller
-@RequestMapping("/admin/rcReport")
+@RequestMapping(value = "/admin/rcReport")
 public class RcReportController extends BaseController {
 
 	// private final static String TARGETID = "admin-rcReport";
@@ -45,9 +44,9 @@ public class RcReportController extends BaseController {
 	 * @param pageSize
 	 * @param modelMap
 	 */
-	@RequestMapping(value = LIST)
-	public void list(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, @RequestParam(value = "orderField", required = false) String orderField, @RequestParam(value = "orderDirection", required = false) String orderDirection, @ModelAttribute RcReportQO qo, ModelMap modelMap) {
-		modelMap.put("page", service.listForPage(pageCurrent, pageSize, orderField, orderDirection, qo));
+	@RequestMapping(value = "/list")
+	public void list(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, @ModelAttribute RcReportQO qo, ModelMap modelMap) {
+		modelMap.put("page", service.listForPage(pageCurrent, pageSize, qo));
 		modelMap.put("bean", qo);
 	}
 
@@ -58,7 +57,7 @@ public class RcReportController extends BaseController {
 	 * @param modelMap
 	 * @throws IOException
 	 */
-	@RequestMapping(value = "download", method = RequestMethod.GET)
+	@RequestMapping(value = "/download")
 	public void download(HttpServletResponse response) throws IOException {
 		service.exportExcel(response);
 	}

@@ -209,6 +209,8 @@ public final class PageUtil<T extends Serializable> implements Serializable {
 		pb.setNumPerPage(page.getNumPerPage());
 		pb.setTotalCount(page.getTotalCount());
 		pb.setTotalPage(page.getTotalPage());
+		pb.setOrderField(page.getOrderField());
+		pb.setOrderDirection(page.getOrderDirection());
 		return pb;
 	}
 

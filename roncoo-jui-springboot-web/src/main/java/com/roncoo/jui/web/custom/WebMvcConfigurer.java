@@ -37,7 +37,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		// registry.addInterceptor(shiroInterceptor()).addPathPatterns("/admin/**");
+		registry.addInterceptor(shiroInterceptor()).addPathPatterns("/admin/**");
 		super.addInterceptors(registry);
 	}
 }
@@ -56,7 +56,7 @@ class ShiroInterceptor extends Base implements HandlerInterceptor {
 			PrintWriter out = response.getWriter();
 			Jui bj = new Jui();
 			bj.setStatusCode(300);
-			bj.setMessage("没此权限，请联系管理员");
+			bj.setMessage("测试账号，没此权限！");
 			out.print(JSONUtil.toJsonStr(bj));
 			out.flush();
 			out.close();

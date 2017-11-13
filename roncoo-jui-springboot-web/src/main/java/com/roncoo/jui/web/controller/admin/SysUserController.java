@@ -21,7 +21,7 @@ import com.roncoo.jui.web.service.SysUserService;
  * @since 2017-10-25
  */
 @Controller
-@RequestMapping("/admin/sysUser")
+@RequestMapping(value = "/admin/sysUser")
 public class SysUserController extends BaseController {
 
 	private final static String TARGETID = "admin-sysUser";
@@ -29,7 +29,7 @@ public class SysUserController extends BaseController {
 	@Autowired
 	private SysUserService service;
 	
-	@RequestMapping("/list")
+	@RequestMapping(value = "/list")
 	public void list(@RequestParam(value = "pageNum", defaultValue = "1") int pageCurrent, @RequestParam(value = "numPerPage", defaultValue = "20") int pageSize, @ModelAttribute SysUserQO qo, ModelMap modelMap){
 		modelMap.put("page", service.listForPage(pageCurrent, pageSize, qo));
 		modelMap.put("pageCurrent", pageCurrent);
@@ -39,13 +39,13 @@ public class SysUserController extends BaseController {
 		modelMap.put("userStatusEnums", UserStatusEnum.values());
 	}
 	
-	@RequestMapping("/add")
+	@RequestMapping(value = "/add")
 	public void add(ModelMap modelMap){
 		modelMap.put("userSexEnums", UserSexEnum.values());
 	}
 	
 	@ResponseBody
-	@RequestMapping("/save")
+	@RequestMapping(value = "/save")
 	public String save(@ModelAttribute SysUserQO qo){
 		if (service.save(qo) > 0) {
 			return success(TARGETID);
@@ -54,7 +54,7 @@ public class SysUserController extends BaseController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/delete")
+	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Long id){
 		if (service.deleteById(id) > 0) {
 			return delete(TARGETID);
@@ -62,7 +62,7 @@ public class SysUserController extends BaseController {
 		return error("删除失败");
 	}
 	
-	@RequestMapping("/edit")
+	@RequestMapping(value = "/edit")
 	public void edit(@RequestParam(value = "id") Long id, ModelMap modelMap){
 		modelMap.put("bean", service.getById(id));
 		modelMap.put("userSexEnums", UserSexEnum.values());
@@ -70,7 +70,7 @@ public class SysUserController extends BaseController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/update")
+	@RequestMapping(value = "/update")
 	public String update(@ModelAttribute SysUserQO qo){
 		if (service.updateById(qo) > 0) {
 			return success(TARGETID);
@@ -78,7 +78,7 @@ public class SysUserController extends BaseController {
 		return error("修改失败");
 	}
 	
-	@RequestMapping("/view")
+	@RequestMapping(value = "/view")
 	public void view(@RequestParam(value = "id") Long id, ModelMap modelMap){
 		modelMap.put("bean", service.getById(id));
 		modelMap.put("userSexEnums", UserSexEnum.values());

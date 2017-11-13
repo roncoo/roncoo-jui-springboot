@@ -1,11 +1,11 @@
 <#include "/macro/base.ftl" />
 
-<form id="pagerForm" method="post" action="${base}/admin/report/list">
+<form id="pagerForm" method="post" action="${base}/admin/rcReport/list">
 	<@pagerForm />
 </form>
 
 <div class="pageHeader">
-	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="${base}/admin/report/list" method="post">
+	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="${base}/admin/rcReport/list" method="post">
 		<div class="searchBar">
 			<ul class="searchContent">
 				<li>
@@ -27,7 +27,9 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<li class="line">line</li>
-			<li><a class="icon" href="${base}/admin/report/download" target="dwzExport" targetType="navTab" title="确定要导出这些记录吗?"><span>导出 EXCEL</span></a></li>
+			<@shiro.hasPermission name="/admin/rcReport/download">
+			<li><a class="icon" href="${base}/admin/rcReport/download" target="dwzExport" targetType="navTab" title="确定要导出这些记录吗?"><span>导出 EXCEL</span></a></li>
+		    </@shiro.hasPermission>
 		</ul>
 	</div>
 

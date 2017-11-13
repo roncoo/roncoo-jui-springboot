@@ -1,6 +1,6 @@
 <#include "/macro/base.ftl" />
 <div class="pageContent">
-	<form method="post" action="${base}/admin/dataDictionaryList/save" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+	<form method="post" action="${base}/admin/rcDataDictionaryList/save" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
 		<div class="pageFormContent" layoutH="58">
 			<p>
 				<label>CODE值：</label>

@@ -25,9 +25,11 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
+            <@shiro.hasPermission name="/admin/sysUser/add">
             <li class="line">line</li>
             <li><a class="add" href="${base}/admin/sysUser/add" target="dialog"><span>添加</span></a></li>
             <li class="line">line</li>
+            </@shiro.hasPermission>
         </ul>
     </div>
     <div id="w_list_print">
@@ -64,10 +66,18 @@
                     </#list>
                     </td>
                     <td>
-                        <a title="设置角色" target="dialog" href="${base}/admin/sysRoleUser/set?userId=${bean.id}">设置角色 </a>
+                        <@shiro.hasPermission name="/admin/sysUser/view">
                         <a title="查看" target="dialog" href="${base}/admin/sysUser/view?id=${bean.id}" class="btnView">查看 </a>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysUser/edit">
                         <a title="编辑" target="dialog" href="${base}/admin/sysUser/edit?id=${bean.id}" class="btnEdit">修改 </a>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysUser/delete">
                         <a title="确定要删除吗？" target="ajaxTodo" href="${base}/admin/sysUser/delete?id=${bean.id}" class="btnDel">删除</a>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysRoleUser/set">
+                        <a title="设置角色" target="dialog" href="${base}/admin/sysRoleUser/set?userId=${bean.id}">【设置角色】 </a>
+                        </@shiro.hasPermission>
                     </td>
                 </tr>
                 </#list>

@@ -26,9 +26,11 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
+            <@shiro.hasPermission name="/admin/sysMenu/add">
             <li class="line">line</li>
             <li><a class="add" href="${base}/admin/sysMenu/add?parentId=0" target="dialog"><span>添加</span></a></li>
             <li class="line">line</li>
+            </@shiro.hasPermission>
         </ul>
     </div>
     <div id="w_list_print">
@@ -61,10 +63,18 @@
                     </#list>
                     </td>
                     <td>
+                        <@shiro.hasPermission name="/admin/sysMenu/view">
                         <a title="查看" target="dialog" href="${base}/admin/sysMenu/view?id=${bean.id}" class="btnView">查看 </a>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysMenu/edit">
                         <a title="编辑" target="dialog" href="${base}/admin/sysMenu/edit?id=${bean.id}" class="btnEdit">修改 </a>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysMenu/delete">
                         <a title="确定要删除吗？" target="ajaxTodo" href="${base}/admin/sysMenu/delete?id=${bean.id}" class="btnDel">删除</a>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="/admin/sysMenu/add">
                         <a title="添加" target="dialog" href="${base}/admin/sysMenu/add?parentId=${bean.id}" class="btnAdd">添加 </a>
+                        </@shiro.hasPermission>
                     </td>
                 </tr>
                 
