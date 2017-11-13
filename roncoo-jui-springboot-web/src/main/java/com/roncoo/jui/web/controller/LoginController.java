@@ -52,7 +52,6 @@ public class LoginController extends BaseController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPost() throws UnsupportedEncodingException {
-		System.out.println(login());
 		return redirect(login());
 	}
 
