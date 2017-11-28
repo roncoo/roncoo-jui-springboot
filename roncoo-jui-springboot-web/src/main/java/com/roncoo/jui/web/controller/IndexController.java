@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.roncoo.jui.common.entity.SysUser;
 import com.roncoo.jui.common.util.Constants;
@@ -24,6 +25,7 @@ import com.roncoo.jui.web.bean.vo.SysRoleUserVO;
 import com.roncoo.jui.web.service.SysMenuRoleService;
 import com.roncoo.jui.web.service.SysMenuService;
 import com.roncoo.jui.web.service.SysRoleUserService;
+import com.roncoo.jui.web.service.WebSiteService;
 
 /**
  * @author wujing
@@ -39,7 +41,15 @@ public class IndexController extends BaseController {
 
 	@Autowired
 	private SysRoleUserService sysRoleUserService;
-	
+
+	@Autowired
+	private WebSiteService webSiteService;
+
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public void index(@RequestParam(value = "id", defaultValue = "1") Long id, ModelMap modelMap) {
+		modelMap.put("vo", webSiteService.main(id));
+	}
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(HttpSession session) {
 		return redirect("/index");

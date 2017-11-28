@@ -7,6 +7,20 @@
                 <label>名称：</label>
                 <input type="text" name="roleName" value="${bean.roleName}" placeholder="名称" size="20">
             </p>
+            <p>
+                <label>备注：</label>
+                <input type="text" name="remark" value="${bean.remark!}" placeholder="备注" size="20">
+            </p>
+            <p>
+                <label>排序：</label>
+                <input type="text" name="sort" value="${bean.sort}" alt="打开方式" size="20" class="required"/>
+            </p>
+            <p>
+                <label>状态：</label>
+                <#list statusIdEnums as statusIdEnum>
+                <input type="radio" name="statusId" value="${statusIdEnum.code}" <#if bean.statusId == statusIdEnum.code>checked="checked"</#if>/> ${statusIdEnum.desc}
+                </#list>
+            </p>
         </div>
         <div class="formBar">
             <ul>

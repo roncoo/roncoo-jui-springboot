@@ -8,8 +8,8 @@
         <div class="searchBar">
             <ul class="searchContent">
                 <li>
-                    <label>字段KEY：</label>
-                    <input type="text" name="fieldKey" value="${(bean.fieldKey)!}"/>
+                    <label>名称：</label>
+                    <input type="text" name="roleName" value="${bean.roleName!}"/>
                 </li>
             </ul>
             <div class="subBar">
@@ -38,6 +38,8 @@
                 <tr>
                 <th width="30">序号</th>
                 <th>名称</th>
+                <th>备注</th>
+                <th>排序</th>
                 <th>状态</th>
                 <th>操作</th>
             </tr>
@@ -48,6 +50,8 @@
                 <tr>
                     <td align="center">${bean_index+1}</td>
                     <td>${bean.roleName}</td>
+                    <td>${bean.sort}</td>
+                    <td>${bean.remark!}</td>
                     <td>
                     <#list statusIdEnums as statusId>
                         <#if bean.statusId == statusId.code>${statusId.desc}</#if>

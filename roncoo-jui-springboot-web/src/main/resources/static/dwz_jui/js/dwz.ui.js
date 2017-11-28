@@ -86,7 +86,7 @@ function initUI($p){
 	if ($.fn.xheditor) {
 		$("textarea.editor", $p).each(function(){
 			var $this = $(this);
-			var op = {html5Upload:false, skin: 'vista',tools: $this.attr("tools") || 'full'};
+			var op = {html5Upload:false, skin: 'nostyle',tools: $this.attr("tools") || 'full'};
 			var upAttrs = [
 				["upLinkUrl","upLinkExt","zip,rar,txt"],
 				["upImgUrl","upImgExt","jpg,jpeg,gif,png"],
@@ -182,6 +182,7 @@ function initUI($p){
 			if ($this.attr("maxDate")) opts.maxDate = $this.attr("maxDate");
 			if ($this.attr("mmStep")) opts.mmStep = $this.attr("mmStep");
 			if ($this.attr("ssStep")) opts.ssStep = $this.attr("ssStep");
+			if ($this.attr("defaultTime")) opts.defaultTime = $this.attr("defaultTime");
 			$this.datepicker(opts);
 		});
 	}
@@ -190,6 +191,8 @@ function initUI($p){
 	$("a[target=navTab]", $p).each(function(){
 		$(this).click(function(event){
 			var $this = $(this);
+			if ($this.hasClass('disabled') || $this.hasClass('buttonDisabled')) {return false;}
+
 			var title = $this.attr("title") || $this.text();
 			var tabid = $this.attr("rel") || "_blank";
 			var fresh = eval($this.attr("fresh") || "true");
@@ -210,6 +213,9 @@ function initUI($p){
 	$("a[target=dialog]", $p).each(function(){
 		$(this).click(function(event){
 			var $this = $(this);
+
+			if ($this.hasClass('disabled') || $this.hasClass('buttonDisabled')) {return false;}
+
 			var title = $this.attr("title") || $this.text();
 			var rel = $this.attr("rel") || "_blank";
 			var options = {};
@@ -222,6 +228,7 @@ function initUI($p){
 			options.maxable = eval($this.attr("maxable") || "true");
 			options.minable = eval($this.attr("minable") || "true");
 			options.fresh = eval($this.attr("fresh") || "true");
+			options.resizable = eval($this.attr("resizable") || "true");
 			options.resizable = eval($this.attr("resizable") || "true");
 			options.drawable = eval($this.attr("drawable") || "true");
 			options.close = eval($this.attr("close") || "");
@@ -238,9 +245,11 @@ function initUI($p){
 			return false;
 		});
 	});
-	$("a[target=ajax]", $p).each(function(){
+	$("a[target=ajax], tr[target=ajax]", $p).each(function(){
 		$(this).click(function(event){
 			var $this = $(this);
+			if ($this.hasClass('disabled') || $this.hasClass('buttonDisabled')) {return false;}
+
 			var rel = $this.attr("rel");
 			if (rel) {
 				var $rel = $("#"+rel);
@@ -283,6 +292,7 @@ function initUI($p){
 	if ($.fn.suggest) $("input[suggestFields]", $p).suggest();
 	if ($.fn.itemDetail) $("table.itemDetail", $p).itemDetail();
 	if ($.fn.selectedTodo) $("a[target=selectedTodo]", $p).selectedTodo();
+	if ($.fn.selectedBlank) $("a[target=selectedBlank]", $p).selectedBlank();
 	if ($.fn.pagerForm) $("form[rel=pagerForm]", $p).pagerForm({parentBox:$p});
 
 }

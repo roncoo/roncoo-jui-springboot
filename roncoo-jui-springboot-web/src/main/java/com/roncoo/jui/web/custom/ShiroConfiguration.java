@@ -19,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 
 import com.roncoo.jui.common.dao.SysUserDao;
+import com.roncoo.jui.common.util.ConfUtil;
 import com.roncoo.jui.common.util.Constants;
 import com.roncoo.jui.web.bean.vo.SysMenuVO;
 import com.roncoo.spring.boot.autoconfigure.shiro.ShiroRealm;
@@ -70,7 +71,7 @@ class ShiroCustomRealm extends ShiroRealm {
 		// String roncooNo = token.getUsername();
 		// String password = token.getPassword().toString();
 		
-		SecurityUtils.getSubject().getSession().setAttribute(Constants.Session.USER, sysUserDao.getByUserPhone("188*********"));
+		SecurityUtils.getSubject().getSession().setAttribute(Constants.Session.USER, sysUserDao.getByUserPhone(ConfUtil.USER));
 		return new SimpleAuthenticationInfo(token, token.getPassword(), getName());
 	}
 

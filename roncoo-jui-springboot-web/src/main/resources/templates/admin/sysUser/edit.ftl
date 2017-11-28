@@ -21,11 +21,15 @@
             </p>
     		<p>
                 <label>性别：</label>
-                <input type="text" name="userSex" value="${bean.userSex}" placeholder="性别" size="20">
+                <#list userSexEnums as userSexEnum>
+                <input type="radio" name="userSex" value="${userSexEnum.code}" <#if bean.userSex == userSexEnum.code>checked="checked"</#if>/> ${userSexEnum.desc}
+                </#list>
             </p>
             <p>
                 <label>用户状态：</label>
-                <input type="text" name="userStatus" value="${bean.userStatus}" placeholder="用户状态" size="20">
+                <#list userStatusEnums as userStatusEnum>
+                <input type="radio" name="userStatus" value="${userStatusEnum.code}" <#if bean.userStatus == userStatusEnum.code>checked="checked"</#if>/> ${userStatusEnum.desc}
+                </#list>
             </p>
         </div>
         <div class="formBar">

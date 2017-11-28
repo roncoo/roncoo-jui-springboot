@@ -62,6 +62,7 @@ public class SysRoleController extends BaseController {
 
 	@RequestMapping(value = "/edit")
 	public void edit(@RequestParam(value = "id") Long id, ModelMap modelMap) {
+		modelMap.put("statusIdEnums", StatusIdEnum.values());
 		modelMap.put("bean", service.getById(id));
 	}
 

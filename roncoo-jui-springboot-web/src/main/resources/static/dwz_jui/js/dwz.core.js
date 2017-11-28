@@ -4,7 +4,7 @@
  */
 
 var DWZ = {
-	version: '1.5.3',
+	version: '1.6.0',
 	regPlugins: [], // [function($parent){} ...] 
 	// sbar: show sidebar
 	keyCode: {
@@ -99,12 +99,18 @@ var DWZ = {
 			return {};
 		}
 	},
+	getHtmlBody:function(content){
+		var result = /<body[^>]*>([\s\S]*)<\/body>/.exec(content);
+		if(result && result.length === 2)
+			return result[1];
+		return content;
+	},
 	ajaxError:function(xhr, ajaxOptions, thrownError){
 		if (alertMsg) {
 			alertMsg.error("<div>Http status: " + xhr.status + " " + xhr.statusText + "</div>" 
 				+ "<div>ajaxOptions: "+ajaxOptions + "</div>"
 				+ "<div>thrownError: "+thrownError + "</div>"
-				+ "<div>"+xhr.responseText+"</div>");
+				+ "<div>"+DWZ.getHtmlBody(xhr.responseText)+"</div>");
 		} else {
 			alert("Http status: " + xhr.status + " " + xhr.statusText + "\najaxOptions: " + ajaxOptions + "\nthrownError:"+thrownError + "\n" +xhr.responseText);
 		}
@@ -164,6 +170,13 @@ var DWZ = {
 				if ($.fn.xheditor) {
 					$("textarea.editor", box).xheditor(false);
 				}
+
+				if (window.UE && UE.getEditor) {
+					$('div.edui-editor', box).each(function(){
+						var editorId = $(this).parent().attr('id');
+						UE.getEditor(editorId).destroy();
+					});
+				}
 			});
 		}
 	}
@@ -195,20 +208,24 @@ var DWZ = {
 					var json = DWZ.jsonEval(response);
 					
 					if (json[DWZ.keys.statusCode]==DWZ.statusCode.error){
+						if ($.pdialog) $.pdialog.checkCloseCurrent(json);
+						if (navTab) navTab.checkCloseCurrent(json);
+
 						if (json[DWZ.keys.message]) alertMsg.error(json[DWZ.keys.message]);
 					} else {
 						$this.html(response).initUI();
 						if ($.isFunction(op.callback)) op.callback(response);
 					}
-					
+
+
 					if (json[DWZ.keys.statusCode]==DWZ.statusCode.timeout){
-						if ($.pdialog) $.pdialog.checkTimeout();
-						if (navTab) navTab.checkTimeout();
-	
+						if ($.pdialog) $.pdialog.checkCloseCurrent(json);
+						if (navTab) navTab.checkCloseCurrent(json);
+
 						alertMsg.error(json[DWZ.keys.message] || DWZ.msg("sessionTimout"), {okCall:function(){
 							DWZ.loadLogin();
 						}});
-					} 
+					}
 					
 				},
 				error: DWZ.ajaxError,
@@ -367,10 +384,10 @@ var DWZ = {
 		replaceAll:function(os, ns){
 			return this.replace(new RegExp(os,"gm"),ns);
 		},
-		replaceTm:function($data){
-			if (!$data) return this;
+		replaceTm:function(data){
+			if (!data) return this;
 			return this.replace(RegExp("({[A-Za-z_]+[A-Za-z0-9_]*})","g"), function($1){
-				return $data[$1.replace(/[{}]+/g, "")];
+				return data[$1.replace(/[{}]+/g, "")];
 			});
 		},
 		replaceTmById:function(_box){

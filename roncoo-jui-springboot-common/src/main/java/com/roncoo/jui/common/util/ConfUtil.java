@@ -70,4 +70,8 @@ public final class ConfUtil {
 	public static String getProperty(String keyName, String defaultValue) {
 		return properties.getProperty(keyName, defaultValue);
 	}
+
+	public static final String FILEPATH = getProperty("filePath");
+	public static final String USER = getProperty("user");
+
 }

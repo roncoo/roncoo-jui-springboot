@@ -20,7 +20,9 @@
             </p>
     		<p>
                 <label>性别：</label>
-                <input type="text" name="userSex" value="" placeholder="性别" size="20">
+                <#list userSexEnums as userSexEnum>
+                 <input type="radio" name="userSex" value="${userSexEnum.code}" /> ${userSexEnum.desc}
+                </#list>
             </p>
     		<p>
                 <label>用户密码：</label>

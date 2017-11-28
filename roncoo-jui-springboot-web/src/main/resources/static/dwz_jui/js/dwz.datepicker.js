@@ -65,7 +65,7 @@
 				var monthStart = new Date(dw.year,dw.month-1,1);
 				var startDay = monthStart.getDay();
 				var dayStr="";
-				if (startDay > 0){
+				if (startDay > 0){ //日历前面补齐
 					monthStart.setMonth(monthStart.getMonth() - 1);
 					var prevDateWrap = dp.getDateWrap(monthStart);
 					for(var t=prevDateWrap.days-startDay+1;t<=prevDateWrap.days;t++) {
@@ -83,7 +83,7 @@
 						dayStr+='<dd class="'+_ctrClass+'" day="' + t + '">'+t+'</dd>';
 					}
 				}
-				for(var t=1;t<=42-startDay-dw.days;t++){
+				for(var t=1;t<=42-startDay-dw.days;t++){ // 日历后面补齐
 					var _date = new Date(dw.year,dw.month,t);
 					var _ctrClass = (_date >= minDate && _date <= maxDate) ? '' : 'disabled';
 					dayStr+='<dd class="other '+_ctrClass+'" chMonth="1" day="' + t + '">'+t+'</dd>';
@@ -106,15 +106,25 @@
 				
 				if (dp.hasTime()) {
 					$("#calendar .time").show();
-					
-					var $hour = $(setting.hour$).val(dw.hour).focus(function(){
+
+					var iHour = dw.hour, iMinute = dw.minute, iSecond = dw.second;
+
+					if (dp.opts.defaultTime && !$this.val()) {
+						var timeStr = dp.opts.defaultTime.split(':');
+						iHour = parseInt(timeStr[0]);
+						iMinute = parseInt(timeStr[1]);
+						iSecond = parseInt(timeStr[2]);
+					}
+					iMinute = parseInt(iMinute / dp.opts.mmStep) * dp.opts.mmStep;
+					iSecond = dp.hasSecond() ? iSecond : 0;
+
+					var $hour = $(setting.hour$).val(iHour).focus(function(){
 						changeTmMenu("hh");
 					});
-					var iMinute = parseInt(dw.minute / dp.opts.mmStep) * dp.opts.mmStep;
 					var $minute = $(setting.minute$).val(iMinute).attr('step',dp.opts.mmStep).focus(function(){
 						changeTmMenu("mm");
 					});
-					var $second = $(setting.second$).val(dp.hasSecond() ? dw.second : 0).attr('step',dp.opts.ssStep).focus(function(){
+					var $second = $(setting.second$).val(iSecond).attr('step',dp.opts.ssStep).focus(function(){
 						changeTmMenu("ss");
 					});
 					

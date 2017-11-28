@@ -3,6 +3,7 @@ package com.roncoo.jui.web.service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import com.roncoo.jui.common.dao.SysUserDao;
 import com.roncoo.jui.common.entity.SysUser;
@@ -10,6 +11,7 @@ import com.roncoo.jui.common.entity.SysUserExample;
 import com.roncoo.jui.common.entity.SysUserExample.Criteria;
 import com.roncoo.jui.common.enums.UserStatusEnum;
 import com.roncoo.jui.common.util.PageUtil;
+import com.roncoo.jui.common.util.SqlUtil;
 import com.roncoo.jui.common.util.jui.Page;
 import com.roncoo.jui.web.bean.qo.SysUserQO;
 import com.roncoo.jui.web.bean.vo.SysUserVO;
@@ -30,6 +32,9 @@ public class SysUserService {
 	public Page<SysUserVO> listForPage(int pageCurrent, int pageSize, SysUserQO qo) {
 		SysUserExample example = new SysUserExample();
 		Criteria c = example.createCriteria();
+		if (StringUtils.hasText(qo.getUserPhone())) {
+			c.andUserPhoneLike(SqlUtil.like(qo.getUserPhone()));
+		}
 		example.setOrderByClause(" id desc ");
 		Page<SysUser> page = dao.listForPage(pageCurrent, pageSize, example);
 		return PageUtil.transform(page, SysUserVO.class);

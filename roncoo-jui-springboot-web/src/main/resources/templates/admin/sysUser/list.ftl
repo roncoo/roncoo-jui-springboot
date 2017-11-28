@@ -8,8 +8,8 @@
         <div class="searchBar">
             <ul class="searchContent">
                 <li>
-                    <label>字段KEY：</label>
-                    <input type="text" name="fieldKey" value="${(bean.fieldKey)!}"/>
+                    <label>手机：</label>
+                    <input type="text" name="userPhone" value="${(bean.userPhone)!}"/>
                 </li>
             </ul>
             <div class="subBar">

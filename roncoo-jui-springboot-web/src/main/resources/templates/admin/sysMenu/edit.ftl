@@ -25,7 +25,9 @@
             </p>
             <p>
                 <label>状态：</label>
-                <input type="text" name="statusId" value="${bean.statusId}" alt="状态" size="20" class="required"/>
+                <#list statusIdEnums as statusIdEnum>
+                <input type="radio" name="statusId" value="${statusIdEnum.code}" <#if bean.statusId == statusIdEnum.code>checked="checked"</#if>/> ${statusIdEnum.desc}
+                </#list>
             </p>
             <p>
                 <label>备注：</label>

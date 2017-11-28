@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import com.roncoo.jui.common.dao.SysRoleDao;
 import com.roncoo.jui.common.entity.SysRole;
@@ -16,7 +17,6 @@ import com.roncoo.jui.web.bean.qo.SysRoleQO;
 import com.roncoo.jui.web.bean.qo.SysRoleUserQO;
 import com.roncoo.jui.web.bean.vo.SysRoleUserVO;
 import com.roncoo.jui.web.bean.vo.SysRoleVO;
-
 
 /**
  * 角色信息
@@ -33,7 +33,10 @@ public class SysRoleService {
 	public Page<SysRoleVO> listForPage(int pageCurrent, int pageSize, SysRoleQO qo) {
 		SysRoleExample example = new SysRoleExample();
 		Criteria c = example.createCriteria();
-		example.setOrderByClause(" id desc ");
+		if (StringUtils.hasText(qo.getRoleName())) {
+			c.andRoleNameEqualTo(qo.getRoleName());
+		}
+		example.setOrderByClause("status_id desc, sort desc, id desc ");
 		Page<SysRole> page = dao.listForPage(pageCurrent, pageSize, example);
 		return PageUtil.transform(page, SysRoleVO.class);
 	}

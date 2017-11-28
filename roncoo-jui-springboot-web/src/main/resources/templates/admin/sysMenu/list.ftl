@@ -9,8 +9,8 @@
         <div class="searchBar">
             <ul class="searchContent">
                 <li>
-                    <label>字段KEY：</label>
-                    <input type="text" name="fieldKey" value="${(bean.fieldKey)!}"/>
+                    <label>菜单名称：</label>
+                    <input type="text" name="menuName" value="${(bean.menuName)!}"/>
                 </li>
             </ul>
             <div class="subBar">
