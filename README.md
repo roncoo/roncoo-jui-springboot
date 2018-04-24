@@ -3,6 +3,10 @@
 * 如果没有使用过Spring Boot，也是一个学习的好项目。
 * 可以快速实现一个基于Spring Boot的后台管理系统，前端是基于JUI。
 
+## 项目推荐
+### roncoo-recharge：[码云地址](https://gitee.com/roncoocom/roncoo-recharge) | [Github地址](https://github.com/roncoo/roncoo-recharge)
+### roncoo-jui-springboot：[码云地址](https://gitee.com/roncoocom/roncoo-jui-springboot) | [Github地址](https://github.com/roncoo/roncoo-jui-springboot)
+
 ### 项目截图
 ![菜单管理](/support/images/menu.png)
 ![角色管理](/support/images/role.png)
